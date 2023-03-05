@@ -1,10 +1,10 @@
 /* Import Google font - Poppins */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    caret-color: transparent;
 }
 
 body{
@@ -16,7 +16,7 @@ body{
 }
 
 .wrapper{
-    width: 450px;
+    width: 80%;
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.12);
@@ -93,11 +93,11 @@ header .currentDate{
 }
 
 .days li.inactive{
-    color: #aaa;
+    color: #aaaaaa;
 }
 
 .days li.active{
-    color: #fff;
+    color: #ffffff;
 }
 
 .days li::before{
@@ -113,9 +113,13 @@ header .currentDate{
 }
 
 .days li.active::before{
-    background: blue;
+    background: darkblue;
 }
 
 .days li:not(.active):hover::before{
-    background: cyan;
+    background: skyblue;
+}
+
+.btn{
+    
 }

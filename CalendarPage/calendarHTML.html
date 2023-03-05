@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Calendar</title>
+
     <link rel="stylesheet" href="calendarCSS.css">
     <script src="calendarJS.js" defer></script>
-
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
 
 </head>
 <body>
+
+    <button class="btn" onclick="addEvent()">Add</button>
+
+    <div class="popup"></div>
 
     <div class="wrapper">
         <header>
@@ -19,6 +23,7 @@
                 <span id="next" class="material-symbols-rounded">chevron_right</span>
             </div>
         </header>
+
         <div class="calendar">
             <ul class="weeks">
                 <li>Sun</li>
@@ -31,6 +36,7 @@
             </ul>
             <ul class="days"></ul>
         </div>
+
     </div>
 
 </body>
