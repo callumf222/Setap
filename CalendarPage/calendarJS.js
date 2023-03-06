@@ -53,6 +53,11 @@ prevNextIcon.forEach(icon => {
 
 
 function addEvent() {
-    
-    
+   const title = document.getElementById('eventTitle').value,
+   desc = document.getElementById('eventDesc').value,
+   date = document.getElementById('eventDate').value,
+   eventHolder = document.getElementById('printText');
+
+   eventHolder.innerHTML += `<li> ${title + " " + desc + " " + date} </li>`
+   
 }

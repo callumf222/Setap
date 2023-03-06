@@ -10,13 +10,13 @@
 body{
     display: flex;
     align-items: center;
-    padding: 0 10px;
+    padding: 20px 10px;
     justify-content: center;
-    min-height: 100vh;
 }
 
 .wrapper{
     width: 80%;
+    height: 600px;
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.12);
@@ -113,13 +113,22 @@ header .currentDate{
 }
 
 .days li.active::before{
-    background: darkblue;
+    background: #292F36;
 }
 
 .days li:not(.active):hover::before{
     background: skyblue;
 }
 
-.btn{
+#btnAdd{
     
+}
+
+#eventTitle, #eventDesc, #eventDate{
+    border-radius: 8px;
+    background-color: #aaaaaa;
+}
+
+#printText {
+    padding: 10px 20px;
 }

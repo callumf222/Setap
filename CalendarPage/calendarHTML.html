@@ -11,7 +11,6 @@
 </head>
 <body>
 
-    <button class="btn" onclick="addEvent()">Add</button>
 
     <div class="popup"></div>
 
@@ -36,6 +35,14 @@
             </ul>
             <ul class="days"></ul>
         </div>
+
+        <input type="text" id="eventTitle" class="eventInput"> 
+        <input type="text" id="eventDesc" class="eventInput">
+        <input type="date" id="eventDate" class="eventInput">
+        
+        <button id="btnAdd" onclick="addEvent()">Add</button>
+
+        <ul id="printText"></ul>
 
     </div>
 
