@@ -17,7 +17,7 @@ body{
 .wrapper{
     width: 80%;
     height: 600px;
-    background: #fff;
+    background: #DFFDFF;
     border-radius: 10px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.12);
 }
@@ -38,10 +38,10 @@ header .icons span{
     width: 38px;
     margin: 0 1px;
     cursor: pointer;
-    color: #878787;
+    color: #000;
     text-align: center;
     line-height: 38px;
-    font-size: 1.9rem;
+    font-size: 2.3rem;
     user-select: none;
     border-radius: 50%;
 }
@@ -55,8 +55,8 @@ header .icons span:hover{
 }
 
 header .currentDate{
-    font-size: 1.45rem;
-    font-weight: 500;
+    font-size: 2.3rem;
+    font-weight: 600;
 }
 
 .calendar{
@@ -81,7 +81,7 @@ header .currentDate{
 }
 
 .calendar .weeks li{
-    font-weight: 500;
+    font-weight: 600;
     cursor: default;
 }
 
@@ -89,7 +89,7 @@ header .currentDate{
     z-index: 1;
     cursor: pointer;
     position: relative;
-    margin-top: 30px;
+    margin-top: 45px;
 }
 
 .days li.inactive{
@@ -113,11 +113,11 @@ header .currentDate{
 }
 
 .days li.active::before{
-    background: #292F36;
+    background: #90BEDE;
 }
 
 .days li:not(.active):hover::before{
-    background: skyblue;
+    background: #E5E1EE;
 }
 
 #btnAdd{
@@ -125,9 +125,9 @@ header .currentDate{
 }
 
 #eventTitle, #eventDesc, #eventDate{
-    border-radius: 8px;
-    background-color: #aaaaaa;
+    caret-color: black;
 }
+
 
 #printText {
     padding: 10px 20px;
