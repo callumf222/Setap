@@ -132,3 +132,22 @@ header .currentDate{
 #printText {
     padding: 10px 20px;
 }
+
+.eventBoard {
+    width: 100%;
+    background-color: blue;
+    color: white;
+    border: 2px solid grey;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+}
+
+.eventBoard:not(:last-child) {
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.eventNext {
+
+}
