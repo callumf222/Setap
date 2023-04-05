@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Homepage</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-    <link rel="stylesheet" href="calendarCSStemp.css">
+    <link rel="stylesheet" href="indexCSS.css">
     <!--figure out either seperate style sheet or use calendar one. use w3 schools to try to match wireframe-->
 </head>
 <body>
@@ -14,20 +14,20 @@
     <p>This is the text for the next event.</p>
 </div>
 
-<div class="eventBoard">
-    <h2>Pinned/Important</h2>
-    <p>This is all the important events</p>
-</div>
+<div class="kanban">
 
-<div class="eventBoard">
-    <h2>All Events</h2>
-    <p>This is all the events.</p>
-</div>
+    <div class="eventBoard">
+        <div class="eventBoard__Title">Pinned / Important</div>
+        <div class="eventBoard__Items">
+            <div contenteditable class="eventBoard__Item-input">example event</div>
+            <div class="eventBoard__Dropzone"></div>
+        </div>
+        <button class="eventBoard__DButton" type="button">D</button>
+        <button class="eventBoard__PButton" type="button">P</button>
+    </div>
+    <button class="eventBoardAddItem" type="button">+</button>
 
-<div class="eventBoard">
-    <h2>Deleted Events</h2>
-    <p>This is all the deleted events</p>
-</div>
 
+</div>
 </body>
 </html>

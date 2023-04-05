@@ -1,0 +1,90 @@
+.eventNext {
+    display: flex;
+    padding: 30px;
+    background: #bebebe;
+    border-radius: 5px;
+    margin-bottom:20px;
+}
+
+.kanban {
+    position: relative;
+    display: flex;
+    padding: 30px;
+    background: #bebebe;
+    border-radius: 5px;
+}
+
+.eventBoard {
+    position: relative;
+    width: 30%;
+    background-color: #83ded7;
+    color: white;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px 20px 50px;
+}
+
+.eventBoard:not(:last-child) {
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.eventBoard__Title {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.eventBoard__Item-input {
+    padding: 10px 15px;
+    box-sizing: border-box;
+    background: white;
+    border-radius: 5px;
+    cursor: pointer;
+    color: black;
+}
+
+.eventBoard__Dropzone {
+    height: 10px;
+    transition: background 0.15s, height 0.15s;
+}
+
+.eventBoardDropzone--active {
+    height: 20px;
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.eventBoard__DButton {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 30px;
+    color: white;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.eventBoard__PButton {
+    position: absolute;
+    bottom: 10px;
+    right: 50px;
+    font-size: 30px;
+    color: white;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.eventBoardAddItem {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 30px;
+    color: white;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
