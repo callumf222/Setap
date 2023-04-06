@@ -5,13 +5,16 @@
     <title>Homepage</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
     <link rel="stylesheet" href="indexCSS.css">
-    <!--figure out either seperate style sheet or use calendar one. use w3 schools to try to match wireframe-->
+
 </head>
 <body>
 
 <div class="eventNext">
-    <h2>Next event</h2>
-    <p>This is the text for the next event.</p>
+    <div class="eventNext__Title">Next event</div>
+    <div class="eventNext__Item-input">display content here.</div>
+    <button class="eventBoard__DButton" type="button">D</button>
+    <button class="eventBoard__PButton" type="button">P</button>
+     <!--these buttons are underneath the original d and p buttons, also they are delete and pin i think-->
 </div>
 
 <div class="kanban">
@@ -19,7 +22,7 @@
     <div class="eventBoard">
         <div class="eventBoard__Title">Pinned / Important</div>
         <div class="eventBoard__Items">
-            <div contenteditable class="eventBoard__Item-input">example event</div>
+            <div class="eventBoard__Item-input">display content here</div>
             <div class="eventBoard__Dropzone"></div>
         </div>
         <button class="eventBoard__DButton" type="button">D</button>

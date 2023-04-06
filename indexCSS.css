@@ -6,6 +6,22 @@
     margin-bottom:20px;
 }
 
+.eventNext__Title {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.eventNext__Item-input {
+    padding: 10px 15px;
+    box-sizing: border-box;
+    background: white;
+    border-radius: 5px;
+    cursor: pointer;
+    color: black;
+}
+
 .kanban {
     position: relative;
     display: flex;
