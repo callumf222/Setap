@@ -3,53 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Calendar</title>
-
     <link rel="stylesheet" href="calendarCSS.css">
-    <script src="calendarJS.js" defer></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <script src="calendarJS.js"></script>
 
 </head>
 <body>
-
-
-    <div class="popup"></div>
-
-    <div class="wrapper">
-        <header>
-            <p class="currentDate"></p>
-            <div class="icons">
-                <span id="prev" class="material-symbols-rounded"><</span>
-                <span id="next" class="material-symbols-rounded">></span>
-            </div>
-        </header>
-
-        <div class="calendar">
-            <ul class="weeks">
-                <li>Sun</li>
-                <li>Mon</li>
-                <li>Tue</li>
-                <li>Wed</li>
-                <li>Thu</li>
-                <li>Fri</li>
-                <li>Sat</li>
-            </ul>
-            <ul class="days"></ul>
-        </div>
-
-        <p>Title</p>
-        <input type="text" id="eventTitle" class="eventInput"> 
-
-        <p>Description</p>
-        <input type="text" id="eventDesc" class="eventInput">
-
-        <p>Date</p>
-        <input type="date" id="eventDate" class="eventInput">
-        
-        <button id="btnAdd" onclick="addEvent()">Add</button>
-
-        <ul id="printText"></ul>
-
-    </div>
 
 </body>
 </html>
