@@ -2,6 +2,8 @@ const daysTag = document.querySelector(".days"),
     currentDate = document.querySelector(".currentDate"),
     prevNextIcon = document.querySelectorAll(".icons span");
 
+
+
 let date = new Date(),
     currYear = date.getFullYear(),
     currMonth = date.getMonth();
@@ -51,26 +53,12 @@ prevNextIcon.forEach(icon => {
 });
 
 
-
-function addEvent() {
-   const title = document.getElementById('eventTitle').value,
-   desc = document.getElementById('eventDesc').value,
-   date = document.getElementById('eventDate').value,
-
-   eventHolder = document.getElementById('printText');
-   
-   /* This could be used to add more detail to the calendar for when events are being displayed on certain days
-   lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate();
-   let liTag = "";
-   const dateArray = date.split("-");
-    for(let i = 1; i <= lastDateofMonth; i++){
-        if (i == dateArray[2]){
-            liTag += `<li class="testAdd">${"99"}</li>`;
-        }
-    }
-    */
+function pickDate() {
+    const monthInput = document.querySelector('input[type="month"]');
+    const [year, month] = monthInput.value.split('-').map(Number);
     
+    currYear = year;
+    currMonth = month - 1;
 
-    //Prints the Event data to the page, can be used to save in a database.
-   eventHolder.innerHTML += `<li> ${title + " " + desc + " " + date} </li>`
-}
+    renderCalendar();
+  }

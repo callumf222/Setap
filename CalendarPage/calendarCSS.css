@@ -48,7 +48,7 @@ header .icons span{
 }
 
 header .icons span:hover{
-    background: #f2f2f2;
+    background: #9DAAF2;
 }
 
 header .currentDate{
@@ -110,9 +110,20 @@ header .currentDate{
 }
 
 .days li.active::before{
-    background: #90BEDE;
+    background: #3b4ca8;
 }
 
 .days li:not(.active):hover::before{
-    background: #E5E1EE;
+    background: #9DAAF2;
+}
+
+
+
+#dateSelecterBtn, #dateSelecter{
+    cursor: pointer;
+}
+
+.selecter{
+    position: relative;
+    right: 27%;
 }
