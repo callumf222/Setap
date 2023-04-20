@@ -7,6 +7,7 @@ body{
     padding: 20px 10px;
     justify-content: center;
     background-color: #9DAAF2;
+    overflow-y: hidden;
 }
 
 .wrapper{
@@ -67,7 +68,7 @@ header .currentDate{
 }
 
 .calendar .days{
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .calendar li{
@@ -85,7 +86,7 @@ header .currentDate{
     z-index: 1;
     cursor: pointer;
     position: relative;
-    margin-top: 45px;
+    margin-top: 67px;
 }
 
 .days li.inactive{
@@ -114,17 +115,4 @@ header .currentDate{
 
 .days li:not(.active):hover::before{
     background: #E5E1EE;
-}
-
-
-
-
-.inputField{
-    padding-left: 20px;
-    font-size: large;
-}
-
-#eventTitle, #eventDesc, #eventDate{
-    caret-color: black;
-    width: 200px;
 }
