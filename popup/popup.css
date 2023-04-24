@@ -1,3 +1,20 @@
+ .button{
+  background-color: #3B4CA8;
+  border: none;
+  color: rgb(255, 255, 255);
+  padding: 20px;
+  text-align: center;
+  display: inline-block;
+  font-size: 24px;
+  margin: 4px 4px;
+  border-radius: 50%;
+  position: fixed;
+  right: 0;
+  bottom:0;
+  
+
+ }
+ 
  /* The Modal (background) */
  .modal {
     display: none; /* Hidden by default */
@@ -23,7 +40,7 @@
   
   /* The Close Button */
   .close {
-    color: #aaa;
+    color: #ff0000;
     float: right;
     font-size: 28px;
     font-weight: bold;
