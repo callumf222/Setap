@@ -44,6 +44,17 @@ function saveDate() {
   console.log("Selected date: " + selectedDate);
 }
 
+function saveEndDate() {
+  // Get the date input element
+  const dateInput = document.getElementById("endDateSelecter");
+
+  // Get the value of the date input element and save it as a variable
+  const selectedEndDate = dateInput.value;
+
+  // Log the selected date to the console
+  console.log("Selected date: " + selectedEndDate);
+}
+
 function saveTitle() {
   var title = document.getElementById("title").value;
   console.log("Title: " + title);
@@ -67,4 +78,5 @@ function saveAll(){
   saveTextarea()
   saveChecklist()
   saveDate()
+  saveEndDate()
 }
