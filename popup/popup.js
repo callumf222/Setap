@@ -43,3 +43,28 @@ function saveDate() {
   // Log the selected date to the console
   console.log("Selected date: " + selectedDate);
 }
+
+function saveTitle() {
+  var title = document.getElementById("title").value;
+  console.log("Title: " + title);
+}
+
+function saveTextarea() {
+  var textarea = document.getElementById("textarea").value;
+  console.log("Textarea: " + textarea);
+}
+
+function saveChecklist() {
+  var option1 = document.getElementById("option1").checked;
+  var option2 = document.getElementById("option2").checked;
+  var option3 = document.getElementById("option3").checked;
+  var option4 = document.getElementById("option4").checked;
+  console.log("Checklist: " + option1 + ", " + option2 + ", " + option3 + ", " + option4);
+}
+
+function saveAll(){
+  saveTitle()
+  saveTextarea()
+  saveChecklist()
+  saveDate()
+}
