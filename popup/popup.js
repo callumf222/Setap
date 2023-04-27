@@ -40,8 +40,8 @@ function saveDate() {
   // Get the value of the date input element and save it as a variable
   const selectedDate = dateInput.value;
 
-  // Log the selected date to the console
-  console.log("Selected date: " + selectedDate);
+  return selectedDate
+
 }
 
 function saveEndDate() {
@@ -51,18 +51,17 @@ function saveEndDate() {
   // Get the value of the date input element and save it as a variable
   const selectedEndDate = dateInput.value;
 
-  // Log the selected date to the console
-  console.log("Selected date: " + selectedEndDate);
+  return selectedEndDate
 }
 
 function saveTitle() {
   var title = document.getElementById("title").value;
-  console.log("Title: " + title);
+  return title
 }
 
 function saveTextarea() {
   var textarea = document.getElementById("textarea").value;
-  console.log("Textarea: " + textarea);
+  return textarea
 }
 
 function saveChecklist() {
@@ -70,13 +69,11 @@ function saveChecklist() {
   var option2 = document.getElementById("option2").checked;
   var option3 = document.getElementById("option3").checked;
   var option4 = document.getElementById("option4").checked;
-  console.log("Checklist: " + option1 + ", " + option2 + ", " + option3 + ", " + option4);
+
+  return [option1,option2,option3,option4]
 }
 
 function saveAll(){
-  saveTitle()
-  saveTextarea()
-  saveChecklist()
-  saveDate()
-  saveEndDate()
+  var eventValue = [saveTitle(), saveTextarea(),saveChecklist(),saveDate(),saveEndDate()]
+  console.log(eventValue)
 }
