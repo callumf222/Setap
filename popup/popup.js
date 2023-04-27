@@ -40,7 +40,7 @@ function saveDate() {
   // Get the value of the date input element and save it as a variable
   const selectedDate = dateInput.value;
 
-  return selectedDate
+  return  Date.parse(selectedDate)
 
 }
 
@@ -51,17 +51,17 @@ function saveEndDate() {
   // Get the value of the date input element and save it as a variable
   const selectedEndDate = dateInput.value;
 
-  return selectedEndDate
+  return Date.parse(selectedEndDate)
 }
 
 function saveTitle() {
   var title = document.getElementById("title").value;
-  return title
+  return String(title)
 }
 
 function saveTextarea() {
   var textarea = document.getElementById("textarea").value;
-  return textarea
+  return String(textarea)
 }
 
 function saveChecklist() {
