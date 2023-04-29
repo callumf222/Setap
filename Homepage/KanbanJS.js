@@ -9,6 +9,20 @@ export default class KanbanJS {
 
           this.root.appendChild(eventBoardView.elements.root);
       });
+
+      const addItemButton = this.root.querySelector(".eventBoardAddItem");
+      addItemButton.addEventListener("click", () => {
+          const eventBoardItem = document.createElement("div");
+          eventBoardItem.classList.add("eventBoard__Item-input");
+          const itemContent = document.createTextNode("New item");
+          eventBoardItem.appendChild(itemContent);
+          const allEventBoards = this.root.querySelectorAll(".eventBoard__Items");
+          allEventBoards.forEach(eventBoard => {
+              eventBoard.appendChild(eventBoardItem.cloneNode(true));
+          });
+      });
+
+
   }
 
   static
