@@ -73,6 +73,7 @@ function saveChecklist() {
   return [option1,option2,option3,option4]
 }
 
+//THIS CREATES 2 NEW ITEMS IN ONE COLUMN
 function saveAll() {
     // Get the values of the form inputs
     const title = document.querySelector(".title").value;
@@ -87,6 +88,7 @@ function saveAll() {
     // Create a new event board item with the collected data
     const eventBoardItem = document.createElement("div");
     eventBoardItem.classList.add("eventBoard__Item-input");
+
     const itemContent = document.createTextNode(`${title}: ${description}`);
     eventBoardItem.appendChild(itemContent);
 

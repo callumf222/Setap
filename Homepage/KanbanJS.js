@@ -10,6 +10,8 @@ export default class KanbanJS {
           this.root.appendChild(eventBoardView.elements.root);
       });
 
+      //THIS CREATES A NEW ITEM IN ALL COLUMNS
+
       const addItemButton = this.root.querySelector(".eventBoardAddItem");
       addItemButton.addEventListener("click", () => {
           const eventBoardItem = document.createElement("div");
@@ -17,6 +19,7 @@ export default class KanbanJS {
           const itemContent = document.createTextNode("New item");
           eventBoardItem.appendChild(itemContent);
           const allEventBoards = this.root.querySelectorAll(".eventBoard__Items");
+
           allEventBoards.forEach(eventBoard => {
               eventBoard.appendChild(eventBoardItem.cloneNode(true));
           });
