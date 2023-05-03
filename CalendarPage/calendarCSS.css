@@ -123,15 +123,17 @@ header .currentDate{
     font-size: 1.5rem;
 }
 
+#dateSelecterBtn:hover{
+    color: #3b4ca8;
+    font-size: 2rem;
+}
+
 #dateSelecter{
     padding-top: 7px;
     text-align: center;
     justify-content: center;
 }
 
-#dateSelecterBtn:hover{
-    color: #3b4ca8;
-}
 
 #dateSelecterBtn, #dateSelecter{
     cursor: pointer;
