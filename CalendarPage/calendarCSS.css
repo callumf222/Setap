@@ -52,6 +52,7 @@ header .icons span:hover{
 header .currentDate{
     font-size: 2.3rem;
     font-weight: 600;
+    text-decoration: underline;
 }
 
 .calendar{
@@ -78,6 +79,7 @@ header .currentDate{
 .calendar .weeks li{
     font-weight: 600;
     cursor: default;
+    text-decoration: underline;
 }
 
 .calendar .days li{
@@ -116,6 +118,20 @@ header .currentDate{
 }
 
 
+#dateSelecterBtn{
+    color: #000;
+    font-size: 1.5rem;
+}
+
+#dateSelecter{
+    padding-top: 7px;
+    text-align: center;
+    justify-content: center;
+}
+
+#dateSelecterBtn:hover{
+    color: #3b4ca8;
+}
 
 #dateSelecterBtn, #dateSelecter{
     cursor: pointer;
@@ -123,5 +139,5 @@ header .currentDate{
 
 .selecter{
     position: relative;
-    right: 15%;
+    left: 25%;
 }

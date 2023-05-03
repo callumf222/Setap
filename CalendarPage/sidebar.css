@@ -31,7 +31,7 @@
   position: absolute;
   width: 100%;
   height: 60px;
-  box-shadow: 0px 2px 4px rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 2px 4px rgba(255, 255, 255, 1);
 }
 
 .sidebar_menu .logo a{
@@ -56,7 +56,7 @@
 }
 
 .sidebar_menu .menu i{
-  color: #000;
+  color: #DFFDFF;
   font-size: 20px;
   padding-right: 8px;
 }
@@ -69,7 +69,7 @@
 
 .sidebar_menu .menu li:hover{
   border-left: 1px solid #000;
-  box-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 4px rgba(255, 255, 255, 1);
 }
 
 .sidebar_menu .social_media{
@@ -112,6 +112,7 @@
 }
 
  .sidebar_menu .btnClose i{
+  color: #DFFDFF;
   font-size: 25px;
   line-height: 60px;
   position: absolute;
