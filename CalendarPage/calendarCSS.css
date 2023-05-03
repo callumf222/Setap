@@ -77,7 +77,7 @@ header .currentDate{
 }
 
 .calendar .weeks li{
-    font-weight: 600;
+    font-weight: 700;
     cursor: default;
     text-decoration: underline;
 }
@@ -129,7 +129,7 @@ header .currentDate{
 }
 
 #dateSelecter{
-    padding-top: 7px;
+    padding-top: 5px;
     text-align: center;
     justify-content: center;
 }
@@ -141,5 +141,5 @@ header .currentDate{
 
 .selecter{
     position: relative;
-    left: 25%;
+    left: 27%;
 }
