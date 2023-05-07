@@ -87,9 +87,9 @@ function saveAll(){
     eventBoardItem.appendChild(itemContent);
 
 
-    //maybe loop through all boards then go to second that way
-    const secondEventBoard = document.querySelector(".eventBoard");
-    secondEventBoard.querySelector(".eventBoard__Item_List").appendChild(eventBoardItem);
+
+    const EventBoard = document.getElementById("AllBoard");
+    EventBoard.querySelector(".eventBoard__Item_List").appendChild(eventBoardItem);
 
     modal.style.display = "none";
 
