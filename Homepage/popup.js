@@ -73,7 +73,8 @@ function saveChecklist() {
   return [option1,option2,option3,option4]
 }
 
-//THIS CREATES 2 NEW ITEMS IN ONE COLUMN
+//THIS CREATES 2 NEW ITEMS IN ONE COLUMN using form
+//adapt to here
 function saveAll() {
     // Get the values of the form inputs
     const title = document.querySelector(".title").value;
@@ -93,8 +94,9 @@ function saveAll() {
     eventBoardItem.appendChild(itemContent);
 
     // Find the first event board and add the new item to it
-    const firstEventBoard = document.querySelector(".eventBoard");
-    firstEventBoard.querySelector(".eventBoard__Items").appendChild(eventBoardItem);
+    allEventBoards.forEach(eventBoard => {
+        eventBoard.appendChild(eventBoardItem.cloneNode(true));
+    });
 
     // Close the modal dialog
     modal.style.display = "none";
