@@ -76,7 +76,7 @@
     text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
-.eventBoard__Item-input {
+.eventBoard__Item {
     padding: 10px 15px;
     box-sizing: border-box;
     background: white;
@@ -117,18 +117,10 @@
     cursor: pointer;
 }
 
-.eventBoardAddItem {
+
+
+.AddItem{
     position: absolute;
-    bottom: 10px;
-    right: 10px;
-    font-size: 30px;
-    color: white;
-    background: rgba(0, 0, 0, 0.1);
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-.button{
     background-color: #3B4CA8;
     border: none;
     color: rgb(255, 255, 255);
@@ -138,7 +130,6 @@
     font-size: 24px;
     margin: 4px 4px;
     border-radius: 50%;
-    position: fixed;
     right: 0;
     bottom:0;
     cursor: pointer;
@@ -146,23 +137,7 @@
 
 }
 
-.button{
-    background-color: #3B4CA8;
-    border: none;
-    color: rgb(255, 255, 255);
-    padding: 20px;
-    text-align: center;
-    display: inline-block;
-    font-size: 24px;
-    margin: 4px 4px;
-    border-radius: 50%;
-    position: fixed;
-    right: 0;
-    bottom:0;
-    cursor: pointer;
 
-
-}
 
 /* The Modal (background) */
 .modal {

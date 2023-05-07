@@ -73,7 +73,25 @@ function saveChecklist() {
     return [option1,option2,option3,option4]
 }
 
+//use this function to create event on page using data
 function saveAll(){
     var eventValue = [saveTitle(), saveTextarea(),saveChecklist(),saveDate(),saveEndDate()]
     console.log(eventValue)
+
+    // Create a new event board item with the collected data
+    const eventBoardItem = document.createElement("div");
+    eventBoardItem.className = "eventBoard__Item"; //MAYBE USE .classList.add() instead
+
+    const itemContent = document.createTextNode(`${eventValue[0]} ${eventValue[1]} ${eventValue[2]} ${eventValue[3]} ${eventValue[4]}`);
+
+    eventBoardItem.appendChild(itemContent);
+
+
+    //maybe loop through all boards then go to second that way
+    const secondEventBoard = document.querySelector(".eventBoard");
+    secondEventBoard.querySelector(".eventBoard__Item_List").appendChild(eventBoardItem);
+
+    modal.style.display = "none";
+
+
 }
