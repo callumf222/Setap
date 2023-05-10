@@ -1,18 +1,16 @@
 /* Import Google font - Poppins */
 
-
 body{
     display: flex;
     align-items: center;
-    padding: 20px 10px;
     justify-content: center;
     background-color: #9DAAF2;
-    overflow-y: hidden;
+    overflow-y: auto;
 }
 
 .wrapper{
     width: 80%;
-    height: 800px;
+    height: 80%;
     background: #DFFDFF;
     border-radius: 10px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.6);
@@ -54,6 +52,7 @@ header .icons span:hover{
 header .currentDate{
     font-size: 2.3rem;
     font-weight: 600;
+    text-decoration: underline;
 }
 
 .calendar{
@@ -68,25 +67,26 @@ header .currentDate{
 }
 
 .calendar .days{
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .calendar li{
     color: #333;
     width: calc(100% / 7);
-    font-size: 1.07rem;
+    font-size: 0.8rem;
 }
 
 .calendar .weeks li{
-    font-weight: 600;
+    font-weight: 700;
     cursor: default;
+    text-decoration: underline;
 }
 
 .calendar .days li{
     z-index: 1;
     cursor: pointer;
     position: relative;
-    margin-top: 67px;
+    margin-top: 3.5%;
 }
 
 .days li.inactive{
@@ -118,6 +118,22 @@ header .currentDate{
 }
 
 
+#dateSelecterBtn{
+    color: #000;
+    font-size: 1.5rem;
+}
+
+#dateSelecterBtn:hover{
+    color: #3b4ca8;
+    font-size: 2rem;
+}
+
+#dateSelecter{
+    padding-top: 5px;
+    text-align: center;
+    justify-content: center;
+}
+
 
 #dateSelecterBtn, #dateSelecter{
     cursor: pointer;
@@ -125,7 +141,7 @@ header .currentDate{
 
 .selecter{
     position: relative;
-    right: 27%;
+    left: 27%;
 }
 
 

@@ -20,23 +20,24 @@
   height: 100vh;
   width: 280px;
   left: -280px;
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0px 0px 3px rgba(255, 255, 255, 0.5);
+  background: #9DAAF2;
+  box-shadow: 0px 0px 5px rgba(000, 000, 000, 0.7);
   overflow: hidden;
   transition: all 0.3s linear;
+  z-index: 3;
 }
 
 .sidebar_menu .logo{
   position: absolute;
   width: 100%;
   height: 60px;
-  box-shadow: 0px 2px 4px rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 2px 4px rgba(255, 255, 255, 1);
 }
 
 .sidebar_menu .logo a{
-  color: #fff;
+  color: #000;
   font-size: 25px;
-  font-weight: 500;
+  font-weight: 650;
   position: absolute;
   left: 25px;
   line-height: 60px;
@@ -55,20 +56,20 @@
 }
 
 .sidebar_menu .menu i{
-  color: #fff;
+  color: #DFFDFF;
   font-size: 20px;
   padding-right: 8px;
 }
 
 .sidebar_menu .menu a{
-  color: #fff;
+  color: #000;
   font-size: 20px;
   text-decoration: none;
 }
 
 .sidebar_menu .menu li:hover{
-  border-left: 1px solid #fff;
-  box-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
+  border-left: 1px solid #000;
+  box-shadow: 0 0 4px rgba(255, 255, 255, 1);
 }
 
 .sidebar_menu .social_media{
@@ -111,6 +112,7 @@
 }
 
  .sidebar_menu .btnClose i{
+  color: #DFFDFF;
   font-size: 25px;
   line-height: 60px;
   position: absolute;
