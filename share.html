@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>share feature</title>
+        <style>
+        .internalBtn{
+            border-radius: 20px;
+            width: 100px;
+            background-color: blueviolet;
+            padding: 10px;
+        }
+
+        .pasteShare{
+            text-align: center;
+            width: 200px;
+            padding: 10px;
+            display: inline-block;
+        }
+        </style>
+
+        <body>
+            <button class="internalBtn" onclick="copyToClipboard()">Copy</button>
+            <form>
+                <input type="text" class="pasteShare" id="pasteshare" placeholder="PasteHere">
+                <button type="button" class="internalBtn" onclick="submitting()">Submit</button>
+            </form>
+
+            <script>
+
+            function submitting() {
+                var userInput = document.getElementById("pasteshare").value;
+                console.log(userInput);
+                navigator.clipboard.writeText(userInput).value;
+            }
+
+            function copyToClipboard(){
+                let text1 = "Dummy Copy"; //this needs to access a CSV file and return all its contents
+                navigator.clipboard.writeText(text1).value;
+            }
+
+            </script> 
+        </body>
+
+    </head>
+</html>
