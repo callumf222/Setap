@@ -11,6 +11,22 @@ class Event {
 		this.endDate = endDate;
 	}
 
+	set changeTitle(newTitle) {this.title = newTitle;}
+	// get title(index){return events(index).this.title;}
+	
+	set changeDescription(newDescription) {this.description = newDescription;}
+	// get description(){return this.description;}
+	
+	set changeTagList(newTaglist) {this.tagList= newTaglist;}
+	// get tagList(){return this.tagList;}
+	
+
+	set changeStartDate(newStartDate) {this.startDate = newStartDate;}
+	// get startDate(){return this.startDate;}
+	
+	set changeEndDate(newEndDate) {this.endDate= this.newEndDate;}
+	// get endDate(){return this.endDate;}
+
 }
 
 const events = [];
@@ -21,10 +37,10 @@ fs.createReadStream('events.csv')
 		const title = row[0];
 		const description = row[1];
 		const tagList = [
-			Boolean(row[2]),
-			Boolean(row[3]),
-			Boolean(row[4]),
-			Boolean(row[5])
+			row[2] === 'true',
+			row[3] === 'true',
+			row[4] === 'true',
+			row[5] === 'true'
 		];
 		const startDate = parseInt(row[6]);
 		const endDate = parseInt(row[7]);
@@ -57,19 +73,19 @@ function addEvent(addTitle,addDescription,addTag1,addTag2,addTag3,addTag4,addSta
 fromCSV(); 
 
 
-addTitle="food 3";
-addDescription ="this is bacon";
-addTag1=true;
-addTag2=false;
-addTag3=false;
-addTag4=true;
-addStartDate=628021600000;
-addEndDate=628021600000;
+// addTitle="food 3";
+// addDescription ="this is bacon";
+// addTag1=true;
+// addTag2=false;
+// addTag3=false;
+// addTag4=true;
+// addStartDate=628021600000;
+// addEndDate=628021600000;
 
 
-addEvent(addTitle,addDescription,addTag1,addTag2,addTag3,addTag4,addStartDate,addEndDate);
+// addEvent(addTitle,addDescription,addTag1,addTag2,addTag3,addTag4,addStartDate,addEndDate);
 
-console.log(events)
+// console.log(events)
 
 
 
