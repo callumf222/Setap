@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="sidebar.css">
 
     <script src="calendarJS.js" defer></script>
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
 
@@ -95,6 +96,38 @@
             <ul class="days"></ul>
         </div>
 
+        <button id="myBtn" class="button">+</button>
+
+<!-- Modal button -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p><!-- Event Making code and buttons go here --></p>
+    <label for="title">Event Title:</label><br>
+		<input type="text" id="title" name="title" class="title"><br><br>
+
+		<label for="textarea">Description:</label><br>
+		<textarea id="textarea" name="textarea" class="description"></textarea><br><br>
+
+		<label>Tags:</label><br>
+		<input type="checkbox" id="option1" name="option1" value="Option 1">
+		<label for="option1">Work</label><br>
+		<input type="checkbox" id="option2" name="option2" value="Option 2">
+		<label for="option2">Social</label><br>
+		<input type="checkbox" id="option3" name="option3" value="Option 3">
+		<label for="option3">Chores</label><br>
+		<input type="checkbox" id="option4" name="option4" value="Option 4">
+		<label for="option4">Reminder</label><br><br>
+    <label for="dateName">Start Date: </label><br>
+    <input type="date" name="" id="dateSelecter"><br><br>
+    <label for="endDateName">End Date: </label><br>
+    <input type="date" name="" id="endDateSelecter"><br><br>
+    <button onclick="saveAll()">Save All</button>
+  </div>
+
+</div> 
         
     </div>
 
