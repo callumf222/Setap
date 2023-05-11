@@ -58,6 +58,22 @@ async function fromCSV() {
 	});
 }
 
+function addEvent(addTitle,addDescription,addTag1,addTag2,addTag3,addTag4,addStartDate,addEndDate){
+	const title = addTitle;
+	const description = addDescription;
+	const tagList = [
+		addTag1,addTag2,addTag3,addTag4
+	];
+	const startDate = addStartDate;
+	const endDate = addEndDate;
+	
+	const addEvents = new Event(title,description,tagList,startDate,endDate);
+	const csv = (title+','+description+','+tagList+','+startDate+','+endDate);
+	fs.appendFile('events.csv', csv, (err) => {
+		if (err) console.error('Couldn\'t append the data');})
+	
+}
+
 async function getArray(){
 	const event = await fromCSV();
 	console.log(events);
@@ -97,21 +113,7 @@ console.log(getEvent(input));
 
 
 
-function addEvent(addTitle,addDescription,addTag1,addTag2,addTag3,addTag4,addStartDate,addEndDate){
-	const title = addTitle;
-	const description = addDescription;
-	const tagList = [
-		addTag1,addTag2,addTag3,addTag4
-	];
-	const startDate = addStartDate;
-	const endDate = addEndDate;
-	
-	const addEvents = new Event(title,description,tagList,startDate,endDate);
-	const csv = (title+','+description+','+tagList+','+startDate+','+endDate);
-	fs.appendFile('events.csv', csv, (err) => {
-		if (err) console.error('Couldn\'t append the data');})
-	
-}
+
 
 
 
