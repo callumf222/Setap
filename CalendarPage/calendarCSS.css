@@ -143,3 +143,7 @@ header .currentDate{
     position: relative;
     left: 27%;
 }
+
+.hasEvent{
+    color: yellow;
+}
