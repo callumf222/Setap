@@ -42,8 +42,8 @@ fs.createReadStream('events.csv')
 			row[4] === 'true',
 			row[5] === 'true'
 		];
-		const startDate = parseInt(row[6]);
-		const endDate = parseInt(row[7]);
+		const startDate = new Date(parseInt(row[6]));
+		const endDate = new Date(parseInt(row[7]));
 		const event = new Event(title,description,tagList,startDate,endDate);
 
 		events.push(event);
