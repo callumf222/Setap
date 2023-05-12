@@ -86,6 +86,11 @@ function addEvent(addTitle,addDescription,addTag1,addTag2,addTag3,addTag4,addSta
 	
 }
 
+function stringToCsv(importCode){
+	fs.appendFile('events.csv', importCode, (err) => {
+		if (err) console.error('Couldn\'t append the data');})
+}
+
 // used to get the list created in from CSV 
 async function getArray(){
 	const eventsList = await fromCSV();
@@ -116,6 +121,8 @@ console.log(eventsList);
 // addStartDate=1683897922000;
 // addEndDate=1683897922000;
 //addEvent(addTitle,addDescription,addTag1,addTag2,addTag3,addTag4,addStartDate,addEndDate);
+//importCode = "buy flowers,Roses,true,false,true,true,1683815641000,1683815641000"
+//stringToCsv("\n"+importCode);
 }
 
 
