@@ -4,50 +4,57 @@
     <meta charset="UTF-8">
     <title>Homepage</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-    <link rel="stylesheet" href="indexCSS.css">
-    <script src="IndexJS.js" defer></script>
+    <link rel="stylesheet" href="HomePage.css">
+    <script src="HomePage.js" defer></script>
 
 </head>
 <body>
 
 <div class="eventNext">
     <div class="eventNext__Title">Next event</div>
-    <div class="eventNext__Item-input">display content here.</div>
-    
-    
-
+    <div class="eventNext__Item-input">This will be the next event</div>
 </div>
 
 <div class="kanban">
     <div class="eventBoard" id="PinBoard">
         <div class="eventBoard__Title">Pinned / Important</div>
         <div class="eventBoard__Item_List">
-            <div class="eventBoard__Dropzone"></div>
+            <div class="eventBoard__Dropzone">
+
+
+            </div>
         </div>
-        
-        
+      
+
     </div>
+
     <div class="eventBoard" id="AllBoard">
         <div class="eventBoard__Title">All Events</div>
         <div class="eventBoard__Item_List">
 
-            <div class="eventBoard__Dropzone"></div>
+            <div class="eventBoard__Dropzone">
+
+
+            </div>
         </div>
         
         
     </div>
+
     <div class="eventBoard" id="DelBoard">
         <div class="eventBoard__Title">Deleted</div>
         <div class="eventBoard__Item_List">
+            <div class="eventBoard__Dropzone">
 
-            <div class="eventBoard__Dropzone"></div>
+
+                
+            </div>
         </div>
-        
-        
+        <!--</div>button class="eventBoard__DButton" onclick="eventDel()" type="button">D</button>
+        <button class="eventBoard__PButton" onclick="eventPin()" type="button">P</button>-->
     </div>
 
-    <button class="eventBoard__DButton" onclick="eventDel()" type="button">D</button>
-    <button class="eventBoard__PButton" onclick="eventPin()" type="button">P</button>
+    
     <button id="AddItemBtn" class="AddItem">+</button>
 
 </div>

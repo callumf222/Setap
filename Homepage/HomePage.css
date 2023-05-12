@@ -1,27 +1,34 @@
+body{
+    overflow: hidden;
+    caret-color: transparent;
+    background-color: #9DAAF2;
+}
+
 .eventNext {
     position: relative;
     display: flex;
     padding: 30px;
-    background: #bebebe;
+    background: #DFFDFF;
     border-radius: 5px;
-    margin-bottom:20px;
+    margin-bottom: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
 }
 
 .eventNext__Title {
-    font-size: 30px;
+    font-size: 40px;
     font-weight: 600;
     margin-bottom: 20px;
     padding-right: 20px;
     text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    text-decoration: underline;
 }
 
 .eventNext__Item-input {
-    padding: 10px 15px;
     box-sizing: border-box;
-    background: white;
-    border-radius: 5px;
-    cursor: pointer;
     color: black;
+    border-radius: 5px;
+    justify-content: center;
+    text-align: center;
 }
 
 .eventNext__DButton {
@@ -50,18 +57,20 @@
     position: relative;
     display: flex;
     padding: 30px;
-    background: #bebebe;
     border-radius: 5px;
 }
 
 .eventBoard {
     position: relative;
     width: 30%;
-    background-color: #83ded7;
-    color: white;
+    background-color: #DFFDFF;
+    color: black;
     border-radius: 10px;
     margin: 20px;
     padding: 20px 20px 50px;
+    height: 70%;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+    text-decoration: underline;
 }
 
 .eventBoard:not(:last-child) {
@@ -86,7 +95,7 @@
 }
 
 .eventBoard__Dropzone {
-    height: 10px;
+    height: 620px;
     transition: background 0.15s, height 0.15s;
 }
 
@@ -122,20 +131,22 @@
 .AddItem{
     position: absolute;
     background-color: #3B4CA8;
-    border: none;
-    color: rgb(255, 255, 255);
-    padding: 20px;
-    text-align: center;
-    display: inline-block;
-    font-size: 24px;
-    margin: 4px 4px;
+    color: #fff;
+    font-size: 2.3rem;
     border-radius: 50%;
-    right: 0;
-    bottom:0;
+    height: 60px;
+    width: 60px;
+    top: 90%;
+    left: 95%;
     cursor: pointer;
-
-
 }
+
+.AddItem:hover{
+    background-color: #000;
+}
+
+
+
 
 
 
@@ -148,7 +159,7 @@
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
+    overflow: hidden; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
