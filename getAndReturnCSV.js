@@ -105,23 +105,22 @@ async function getEvent(input){
 	return eventsList[input];
 }
 
-
-async function getEventInfo(input){
-	currentEvent = await getEvent(input);
-	let currentTitle = currentEvent.getTitle
-	let currentDesc = currentEvent.getDescription
-	let currentTaglist = currentEvent.getTagList
-	let currentStartdate = currentEvent.getStartDate
-	let currentEnddate = currentEvent.getEndDate
-	console.log(currentTitle,currentDesc,currentTaglist,currentStartdate,currentEnddate);
-}
-
 async function main(eventsList){
 eventsList = await getArray();
 console.log(eventsList);
-//getEventInfo(0);
 
+////--------------- USE THIS TO GET ALL EVENT DATA ------------
+// let index = 0;
+// let currentEvent = await getEvent(index);
+// let currentTitle = currentEvent.getTitle;
+// let currentDesc = currentEvent.getDescription;
+// let currentTaglist = currentEvent.getTagList;
+// let currentStartdate = currentEvent.getStartDate;
+// let currentEnddate = currentEvent.getEndDate;
 
+//console.log(currentTitle,currentDesc,currentTaglist,currentStartdate,currentEnddate);
+
+//----------------- FORMAT FOR ADDING EVENT TO ARRAY AND CSV-------------
 // addTitle="dentist";
 // addDescription ="go and get dentist appointment";
 // addTag1=true;
