@@ -105,11 +105,21 @@ async function getEvent(input){
 	return eventsList[input];
 }
 
+
+async function getEventInfo(input){
+	currentEvent = await getEvent(input);
+	let currentTitle = currentEvent.getTitle
+	let currentDesc = currentEvent.getDescription
+	let currentTaglist = currentEvent.getTagList
+	let currentStartdate = currentEvent.getStartDate
+	let currentEnddate = currentEvent.getEndDate
+	console.log(currentTitle,currentDesc,currentTaglist,currentStartdate,currentEnddate);
+}
+
 async function main(eventsList){
 eventsList = await getArray();
 console.log(eventsList);
-//currentEvent = await getEvent(1);
-//console.log(currentEvent.getTitle);
+//getEventInfo(0);
 
 
 // addTitle="dentist";
@@ -123,6 +133,7 @@ console.log(eventsList);
 //addEvent(addTitle,addDescription,addTag1,addTag2,addTag3,addTag4,addStartDate,addEndDate);
 //importCode = "buy flowers,Roses,true,false,true,true,1683815641000,1683815641000"
 //stringToCsv("\n"+importCode);
+
 }
 
 
