@@ -1,0 +1,4 @@
+implement the load csv and save to csv
+change delete to archive
+add tags for pin and archived
+add an edit popup

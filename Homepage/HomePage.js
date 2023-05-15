@@ -34,7 +34,7 @@ const dateInput = document.getElementById("dateSelecter");
 const selectedDate = dateInput.value;
 
 // Log the selected date to the console
-console.log("Selected date: " + selectedDate);
+
 
 function saveDate() {
     // Get the date input element
