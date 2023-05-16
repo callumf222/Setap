@@ -79,7 +79,8 @@ function saveChecklist() {
 //use this function to create event on page using data
 function saveAll(){
     var eventValue = [saveTitle(), saveTextarea(),saveChecklist(),saveDate(),saveEndDate()]
-    console.log(eventValue)
+    
+    //console.log(eventValue)
 
     // Create a new event board item with the collected data
     const eventBoardItem = document.createElement("div");
@@ -99,14 +100,15 @@ function saveAll(){
 
 }
 
-function eventDel() {
 
+
+
+function eventDel() {
     selectedEvent.remove();
     const EventBoard = document.getElementById("DelBoard");
-
-
     EventBoard.querySelector(".eventBoard__Item_List").appendChild(selectedEvent);
 }
+
 
 function eventPin() {
     selectedEvent.remove();
@@ -115,16 +117,15 @@ function eventPin() {
 }
 
 function eventClick(eventBoardItem) {
-
     if (selectedEvent === eventBoardItem) {
         selectedEvent.style.backgroundColor = "white";
         selectedEvent = null;
     } else if (selectedEvent !== null) {
         selectedEvent.style.backgroundColor = "white";
         selectedEvent = eventBoardItem;
-        selectedEvent.style.backgroundColor = "red";
+        selectedEvent.style.backgroundColor = "3b4ca8";
     } else {
         selectedEvent = eventBoardItem;
-        selectedEvent.style.backgroundColor = "red";
+        selectedEvent.style.backgroundColor = "#3b4ca8";
     }
 }

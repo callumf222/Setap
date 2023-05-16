@@ -70,7 +70,6 @@ body{
     padding: 20px 20px 50px;
     height: 70%;
     box-shadow: 0 15px 40px rgba(0,0,0,0.6);
-    text-decoration: underline;
 }
 
 .eventBoard:not(:last-child) {
@@ -83,6 +82,7 @@ body{
     font-weight: 600;
     margin-bottom: 20px;
     text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    text-decoration: underline;
 }
 
 .eventBoard__Item {
@@ -175,7 +175,7 @@ body{
 
 /* The Close Button */
 .close {
-    color: #ff0000;
+    color: black;
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -183,7 +183,7 @@ body{
 
 .close:hover,
 .close:focus {
-    color: black;
+    color: #ff0000;
     text-decoration: none;
     cursor: pointer;
 }
