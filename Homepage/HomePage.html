@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
     <link rel="stylesheet" href="HomePage.css">
     <script src="HomePage.js" defer></script>
+    <script src="getAndReturnCSV.js" defer></script>
 
 </head>
 <body>
@@ -89,6 +90,33 @@
     </div>
 
 </div>
+
+
+<!-- Modal content for edit -->
+<div class="modal-content">
+    <span class="close">&times;</span>
+    <p><!-- Event Making code and buttons go here --></p>
+    <label for="title">Event Title:</label><br>
+    <input type="text" id="edit-title" name="title" class="title"><br><br>
+
+    <label for="textarea">Description:</label><br>
+    <textarea id="edit-textarea" name="textarea" class="description"></textarea><br><br>
+
+    <label>Tags:</label><br>
+    <input type="checkbox" id="edit-option1" name="option1" value="Option 1">
+    <label for="option1">Work</label><br>
+    <input type="checkbox" id="edit-option2" name="option2" value="Option 2">
+    <label for="option2">Social</label><br>
+    <input type="checkbox" id="edit-option3" name="option3" value="Option 3">
+    <label for="option3">Chores</label><br>
+    <input type="checkbox" id="edit-option4" name="option4" value="Option 4">
+    <label for="option4">Reminder</label><br><br>
+    <label for="dateName">Start Date: </label><br>
+    <input type="date" name="" id="edit-dateSelecter"><br><br>
+    <label for="endDateName">End Date: </label><br>
+    <input type="date" name="" id="edit-endDateSelecter"><br><br>
+    <button onclick="saveAll()">Save All</button>
+
 
 </body>
 </html>
