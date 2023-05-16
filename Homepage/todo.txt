@@ -1,4 +1,17 @@
-implement the load csv and save to csv
+implement loading and saving:
+
+nodejs doesnt work on browsers, maybe theres a way around that
+the other option is using browser localStorage, which would need stringifying and parsing
+see "convert nodejs Code" in chatgpt
+
+
+
+
+figure out better way to display
 change delete to archive
-add tags for pin and archived
-add an edit popup
+add tags for pin and archived instead
+
+
+add an edit popup:
+find a way to set default values in all the fields
+maybe can run script that sets default values in all the fields by finding "edit-title"

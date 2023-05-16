@@ -93,7 +93,9 @@ function addEvent(addTitle, addDescription, addTag1, addTag2, addTag3, addTag4, 
 
     // Use browser-specific method to write to file (e.g., localStorage, IndexedDB, etc.)
     // Replace the following line with the appropriate code for your use case.
-    console.log('Write to file:', csv);
+
+
+
 }
 
 function stringToCsv(importCode) {
@@ -114,8 +116,28 @@ async function getEvent(input) {
 
 async function main() {
     let eventsList = await getArray();
-    console.log(eventsList);
+    console.log("loading"+ eventsList);
+
+    //loop through eventsList and create eventBoardItems
+    for (let i = 0; i < eventsList.length; i++) {
+
+        //go into first event
+        let event = eventsList[i];
+
+        // Create a new event board item with the collected data
+        const eventBoardItem = document.createElement("div");
+        eventBoardItem.className = "eventBoard__Item";
+        eventBoardItem.setAttribute("onclick", "eventClick(this)");
+
+        const itemContent = document.createTextNode(`${event.title} ${event.description} ${event.tagList} ${event.startDate} ${event.endDate}`);
+
+        eventBoardItem.appendChild(itemContent);
+
+
+        const EventBoard = document.getElementById("AllBoard");
+        EventBoard.querySelector(".eventBoard__Item_List").appendChild(eventBoardItem);
+    }
+
 }
 
 main();
-
