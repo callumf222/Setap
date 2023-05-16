@@ -88,7 +88,9 @@ function saveAll(){
 
     eventBoardItem.setAttribute("onclick", "eventClick(this)");
 
+
     const popup = document.createElement("div");
+
 
 
     const itemContent = document.createTextNode(`${eventValue[0]} ${eventValue[1]} ${eventValue[2]} ${eventValue[3]} ${eventValue[4]}`);
