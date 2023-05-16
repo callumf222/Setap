@@ -83,9 +83,13 @@ function saveAll(){
     //console.log(eventValue)
 
     // Create a new event board item with the collected data
-    const eventBoardItem = document.createElement("div");
-    eventBoardItem.className = "eventBoard__Item"; //MAYBE USE .classList.add() instead
+    const eventBoardItem = document.createElement("button");
+    eventBoardItem.className = "eventBoard__Item";
+
     eventBoardItem.setAttribute("onclick", "eventClick(this)");
+
+    const popup = document.createElement("div");
+
 
     const itemContent = document.createTextNode(`${eventValue[0]} ${eventValue[1]} ${eventValue[2]} ${eventValue[3]} ${eventValue[4]}`);
 
