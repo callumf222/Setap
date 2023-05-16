@@ -87,6 +87,7 @@ function saveAll(){
     eventBoardItem.className = "eventBoard__Item"; //MAYBE USE .classList.add() instead
     eventBoardItem.setAttribute("onclick", "eventClick(this)");
 
+
     const itemContent = document.createTextNode(`${eventValue[0]} ${eventValue[1]} ${eventValue[2]} ${eventValue[3]} ${eventValue[4]}`);
 
     eventBoardItem.appendChild(itemContent);
