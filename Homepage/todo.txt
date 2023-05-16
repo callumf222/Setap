@@ -1,5 +1,6 @@
 implement loading and saving:
 
+FIGURE OUT COMPLEXITY OF GETTING NODE.JS TO WORK IN BROWSER
 nodejs doesnt work on browsers, maybe theres a way around that
 the other option is using browser localStorage, which would need stringifying and parsing
 see "convert nodejs Code" in chatgpt
