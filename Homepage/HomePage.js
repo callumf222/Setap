@@ -91,13 +91,10 @@ function saveAll(){
 
     eventBoardItem.appendChild(itemContent);
 
-
-
     const EventBoard = document.getElementById("AllBoard");
     EventBoard.querySelector(".eventBoard__Item_List").appendChild(eventBoardItem);
 
     modal.style.display = "none";
-
 }
 
 

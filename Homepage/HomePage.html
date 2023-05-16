@@ -8,6 +8,9 @@
     <script src="HomePage.js" defer></script>
     <script src="getAndReturnCSV.js" defer></script>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+
+
 </head>
 <body>
 
@@ -42,7 +45,7 @@
     </div>
 
     <div class="eventBoard" id="DelBoard">
-        <div class="eventBoard__Title">Deleted</div>
+        <div class="eventBoard__Title">Archived</div>
         <div class="eventBoard__Item_List">
             <div class="eventBoard__Dropzone">
 
@@ -53,8 +56,16 @@
         </div>
     </div>
 
-    <button class="eventBoard__DButton" onclick="eventDel()" type="button">D</button>
-    <button class="eventBoard__PButton" onclick="eventPin()" type="button">P</button>
+
+    <!--      Ben D, Add these two buttons into the edit popup, they have icons and whatnot                  -->
+    <div class="eventBoard__PButton">
+        <i class="fas fa-thumbtack" onclick="eventPin()"></i>
+    </div>
+
+    <div class="eventBoard__DButton">
+        <i class="fas fa-trash" onclick="eventDel()"></i>
+    </div>
+
     <button id="AddItemBtn" class="AddItem">+</button>
 
 </div>
@@ -95,7 +106,7 @@
 <!-- Modal content for edit -->
 <div class="modal-content">
     <span class="close">&times;</span>
-    <p><!-- Event Making code and buttons go here --></p>
+    <p> Event Making code and buttons go here </p>
     <label for="title">Event Title:</label><br>
     <input type="text" id="edit-title" name="title" class="title"><br><br>
 
@@ -116,6 +127,8 @@
     <label for="endDateName">End Date: </label><br>
     <input type="date" name="" id="edit-endDateSelecter"><br><br>
     <button onclick="saveAll()">Save All</button>
+
+</div>
 
 
 </body>

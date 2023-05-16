@@ -68,7 +68,7 @@ body{
     border-radius: 10px;
     margin: 20px;
     padding: 20px 20px 50px;
-    height: 70%;
+    height: 680px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.6);
 }
 
@@ -86,16 +86,17 @@ body{
 }
 
 .eventBoard__Item {
+    margin-top: 5px;
     padding: 10px 15px;
     box-sizing: border-box;
     background: white;
     border-radius: 5px;
+    border: 1px solid black;
     cursor: pointer;
     color: black;
 }
 
 .eventBoard__Dropzone {
-    height: 0px;
     transition: background 0.15s, height 0.15s;
 }
 
@@ -107,21 +108,20 @@ body{
 .eventBoard__DButton {
     position: absolute;
     bottom: 10px;
-    right: 60px;
+    right: 110px;
     font-size: 30px;
     color: white;
-    background: rgba(0, 0, 0, 0.1);
     border-radius: 50%;
     cursor: pointer;
+    
 }
 
 .eventBoard__PButton {
     position: absolute;
     bottom: 10px;
-    right: 100px;
+    right: 150px;
     font-size: 30px;
     color: white;
-    background: rgba(0, 0, 0, 0.1);
     border-radius: 50%;
     cursor: pointer;
 }
@@ -142,7 +142,11 @@ body{
 }
 
 .AddItem:hover{
-    background-color: #000;
+    background-color: #1A2238;
+}
+
+.eventBoard__DButton:hover, .eventBoard__PButton:hover{
+    color: #1A2238;
 }
 
 
