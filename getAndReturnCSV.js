@@ -105,9 +105,10 @@ class Event {
 	events = storedEvents ? JSON.parse(storedEvents) : [];
   
   
-	//currentEvent = events.find(item=> item.id === 0)
+	
 	// Display the events
-	//console.log(events[0].title);
+	//console.log(events[index].title);
+
   } else {
 	console.log("Local storage is not supported.");
   }
