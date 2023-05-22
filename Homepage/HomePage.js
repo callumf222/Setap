@@ -32,6 +32,7 @@ function createEvent(id,title, description, tagList, startDate, endDate) {
     const eventBoardItem = document.createElement("button");
     eventBoardItem.className = "eventBoard__Item";
 
+    eventBoardItem.setAttribute("id", id);
     eventBoardItem.setAttribute("onclick", "eventClick(this)");
 
     const itemContent = document.createTextNode(`${title} ${description} ${tagList} ${startDate} ${endDate}`);
@@ -70,9 +71,12 @@ if (typeof(Storage) !== "undefined") {
         console.log(events)
     }
 
-    function deleteEvent(index) {
+    function deleteEvent() {
         // Remove the event from the array
-        events.splice(index, 1);
+
+        events.splice(selectedEvent.id, 1);
+
+        selectedEvent.remove();
 
         // Save the updated array to local storage
         localStorage.setItem("events", JSON.stringify(events));
@@ -213,9 +217,9 @@ function saveAll(){
 
 
 
-function eventDel() {
+function eventArch() {
     selectedEvent.remove();
-    const EventBoard = document.getElementById("DelBoard");
+    const EventBoard = document.getElementById("ArchiveBoard");
     EventBoard.querySelector(".eventBoard__Item_List").appendChild(selectedEvent);
 }
 
