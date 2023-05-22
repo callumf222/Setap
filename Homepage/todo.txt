@@ -1,14 +1,25 @@
 
 
 figure out better way to display
+-------------------------------------------------------------
 
 add an edit popup:
-find a way to set default values in all the fields
-maybe can run script that sets default values in all the fields by finding "edit-title"
+https://chat.openai.com/c/573cbb9f-2707-4e28-85d2-0af9c4945589
+
+replace openEditPopup() as events onclick event
+
+Inside the eventClick() function, call openEditPopup() and pass the selected event's information as arguments.
+In the openEditPopup() function, retrieve the edit popup container using its unique ID and set its display property to
+block to show the popup.
+
 move buttons to edit
+
+add tags for pin and archived instead
+-------------------------------------------------------------
+
 
 implement next event display (search through array for soonest date?)
 
-add tags for pin and archived instead
+
 
 
