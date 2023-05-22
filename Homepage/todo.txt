@@ -1,4 +1,4 @@
-implement loading and saving:
+implement deleting
 
 
 

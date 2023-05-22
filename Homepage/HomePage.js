@@ -233,7 +233,7 @@ function eventClick(eventBoardItem) {
     } else if (selectedEvent !== null) {
         selectedEvent.style.backgroundColor = "white";
         selectedEvent = eventBoardItem;
-        selectedEvent.style.backgroundColor = "3b4ca8";
+        selectedEvent.style.backgroundColor = "#3b4ca8";
     } else {
         selectedEvent = eventBoardItem;
         selectedEvent.style.backgroundColor = "#3b4ca8";
