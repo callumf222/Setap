@@ -1,13 +1,14 @@
-implement archive button
-
 
 
 figure out better way to display
-change delete to archive
-add tags for pin and archived instead
-
 
 add an edit popup:
 find a way to set default values in all the fields
 maybe can run script that sets default values in all the fields by finding "edit-title"
+move buttons to edit
+
+implement next event display (search through array for soonest date?)
+
+add tags for pin and archived instead
+
 

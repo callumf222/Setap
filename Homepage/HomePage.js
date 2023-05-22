@@ -27,7 +27,7 @@ class Event {
 
 }
 
-function createEvent(id,title, description, tagList, startDate, endDate) {
+function createEventBoard(id,title, description, tagList, startDate, endDate) {
 
     const eventBoardItem = document.createElement("button");
     eventBoardItem.className = "eventBoard__Item";
@@ -52,7 +52,7 @@ if (typeof(Storage) !== "undefined") {
     var events = storedEvents ? JSON.parse(storedEvents) : [];
 
     // Function to add a new event#
-    function addEvent(addID,addTitle,addDescription,addTagsList,addStartDate,addEndDate) {
+    function addEventArray(addID,addTitle,addDescription,addTagsList,addStartDate,addEndDate) {
         // Create a new event object
         const id = addID;
         const title = addTitle;
@@ -93,9 +93,9 @@ if (typeof(Storage) !== "undefined") {
     addStartDate=1683897922000;
     addEndDate=1683897922000;
 
-    //addEvent(addId,addTitle,addDescription,addTag1,addTag2,addTag3,addTag4,addStartDate,addEndDate);
+    //addEventArray(addId,addTitle,addDescription,addTag1,addTag2,addTag3,addTag4,addStartDate,addEndDate);
     //deleteEvent(0,events);
-    //addEvent('Test','desc',true,true,false,false,1683897922000,1683897922000);
+    //addEventArray('Test','desc',true,true,false,false,1683897922000,1683897922000);
 
     //Retrieve the updated events from local storage
     storedEvents = localStorage.getItem("events");
@@ -110,7 +110,7 @@ if (typeof(Storage) !== "undefined") {
     //-------------------------LOAD EVENTS --------------------------------
 
     for (let i = 0; i < events.length; i++) {
-        createEvent(events[i].id,events[i].title,events[i].description,events[i].tagList,events[i].startDate,events[i].endDate);
+        createEventBoard(events[i].id,events[i].title,events[i].description,events[i].tagList,events[i].startDate,events[i].endDate);
     }
 
 } else {
@@ -204,10 +204,10 @@ function saveAll(){
 
     var eventValue = [id, saveTitle(), saveTextarea(),saveTagslist(),saveDate(),saveEndDate()]
     
-    createEvent(id, saveTitle(), saveTextarea(),saveTagslist(),saveDate(),saveEndDate())
+    createEventBoard(id, saveTitle(), saveTextarea(),saveTagslist(),saveDate(),saveEndDate())
 
 
-    addEvent(eventValue[0],eventValue[1],eventValue[2],eventValue[3],eventValue[4],eventValue[5])
+    addEventArray(eventValue[0],eventValue[1],eventValue[2],eventValue[3],eventValue[4],eventValue[5])
 
     modal.style.display = "none";
 
