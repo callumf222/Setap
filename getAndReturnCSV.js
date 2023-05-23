@@ -85,29 +85,34 @@ class Event {
 	  localStorage.setItem("events", JSON.stringify(events));
 	}
   
-	// Example usage:
-	addId = 0;
-	addTitle="add this";
-	addDescription ="go and get ice";
-	addTag1=true;
-	addTag2=false;
-	addTag3=false;
-	addTag4=true;
-	addStartDate=1683897922000;
-	addEndDate=1683897922000;
+	//Example usage:
+	// addId = 0;
+	// addTitle="test 1 using variables";
+	// addDescription ="go and get ice";
+	// addTag1=true;
+	// addTag2=false;
+	// addTag3=false;
+	// addTag4=true;
+	// addStartDate=1683897922000;
+	// addEndDate=1683897922000;
   
-	//addEvent(addId,addTitle,addDescription,addTag1,addTag2,addTag3,addTag4,addStartDate,addEndDate);
+	// addEvent(addId,addTitle,addDescription,addTag1,addTag2,addTag3,addTag4,addStartDate,addEndDate);
+	// addEvent(1,'Test 2 with description','desc',true,true,false,false,1683897922000,1683897922000);
+	// addEvent(2,'Test 3 no description of ','',true,true,false,false,1683897922000,1683897922000);
+	
 	//deleteEvent(0,events);
-	//addEvent('Test','desc',true,true,false,false,1683897922000,1683897922000);
-  
 	//Retrieve the updated events from local storage
 	storedEvents = localStorage.getItem("events");
 	events = storedEvents ? JSON.parse(storedEvents) : [];
-  
-  
+	// console.log(events[0]);
+  	
 	
 	// Display the events
-	//console.log(events[index].title);
+	// console.log("Event title ="+events[0].title);
+	// console.log("Event description ="+events[0].description);
+	// console.log("Event tagList ="+events[0].tagList);
+	// console.log("Event start date ="+events[0].startDate);
+	// console.log("Event end date ="+events[0].endDate);
 
   } else {
 	console.log("Local storage is not supported.");
