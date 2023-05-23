@@ -6,13 +6,15 @@ figure out better way to display
 add an edit popup:
 https://chat.openai.com/c/573cbb9f-2707-4e28-85d2-0af9c4945589
 
-replace openEditPopup() as events onclick event
+how does other popup work
 
-Inside the eventClick() function, call openEditPopup() and pass the selected event's information as arguments.
-In the openEditPopup() function, retrieve the edit popup container using its unique ID and set its display property to
-block to show the popup.
+add edit title to edit popup
 
-move buttons to edit
+show events details in popup
+
+move buttons to edit popup
+fix delete event function
+
 
 add tags for pin and archived instead
 -------------------------------------------------------------
@@ -22,4 +24,30 @@ implement next event display (search through array for soonest date?)
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+make a small test file with just the popup to test putting values into fields
 

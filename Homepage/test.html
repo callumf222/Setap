@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="test.js" defer></script>
+</head>
+<body>
+
+<!-- Modal content for edit -->
+<div id="editModal" class="modal">
+    <div class="modal-content">
+        <span id="editSpan" class="close">&times;</span>
+        <label for="edit-title">Event Title:</label><br>
+        <input type="text" id="edit-title" name="title" class="title"><br><br>
+
+        <label for="edit-textarea">Description:</label><br>
+        <textarea id="edit-textarea" name="textarea" class="description"></textarea><br><br>
+
+        <label>Tags:</label><br>
+        <input type="checkbox" id="edit-option1" name="option1" value="Option 1">
+        <label for="edit-option1">Work</label><br>
+        <input type="checkbox" id="edit-option2" name="option2" value="Option 2">
+        <label for="edit-option2">Social</label><br>
+        <input type="checkbox" id="edit-option3" name="option3" value="Option 3">
+        <label for="edit-option3">Chores</label><br>
+        <input type="checkbox" id="edit-option4" name="option4" value="Option 4">
+        <label for="edit-option4">Reminder</label><br><br>
+        <label for="edit-dateSelecter">Start Date: </label><br>
+        <input type="date" name="" id="edit-dateSelecter"><br><br>
+        <label for="edit-endDateSelecter">End Date: </label><br>
+        <input type="date" name="" id="edit-endDateSelecter"><br><br>
+        <button onclick="saveEdit()">Save All</button>
+
+
+    </div>
+</div>
+
+
+
+</body>
+</html>

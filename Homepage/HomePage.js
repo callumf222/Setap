@@ -1,3 +1,8 @@
+// let editTitle = document.getElementById("edit-title");
+// editTitle.value = "Hello World";
+//
+// console.log(editTitle.value);
+
 class Event {
     constructor(id,title, description, tagList, startDate, endDate) {
         this.id = id
@@ -118,7 +123,7 @@ if (typeof(Storage) !== "undefined") {
 }
 
 
-// -------------------------POPUP--------------------------------
+// -------------------------CREATE POPUP--------------------------------
 
 // Get the modal
 var modal = document.getElementById("myModal");
@@ -210,36 +215,212 @@ function saveAll(){
     addEventArray(eventValue[0],eventValue[1],eventValue[2],eventValue[3],eventValue[4],eventValue[5])
 
     modal.style.display = "none";
-
-
+    
 }
 
+//-------------------------EDIT POPUP--------------------------------
 
+// Get the modal
+const editModal = document.getElementById("editModal");
 
+// Get the <span> element that closes the modal
+const editSpan = document.getElementById("editSpan");
 
-function eventArch() {
-    selectedEvent.remove();
-    const EventBoard = document.getElementById("ArchiveBoard");
-    EventBoard.querySelector(".eventBoard__Item_List").appendChild(selectedEvent);
-}
-
-
-function eventPin() {
-    selectedEvent.remove();
-    const EventBoard = document.getElementById("PinBoard");
-    EventBoard.querySelector(".eventBoard__Item_List").appendChild(selectedEvent);
-}
+const editEvent = null;
 
 function eventClick(eventBoardItem) {
-    if (selectedEvent === eventBoardItem) {
-        selectedEvent.style.backgroundColor = "white";
-        selectedEvent = null;
-    } else if (selectedEvent !== null) {
-        selectedEvent.style.backgroundColor = "white";
-        selectedEvent = eventBoardItem;
-        selectedEvent.style.backgroundColor = "#3b4ca8";
+    let editModal = document.getElementById("editModal");
+    editModal.style.display = "block";
+
+    selectedEvent = events[eventBoardItem.id];
+
+    //put values into edit modal
+
+
+
+
+
+    let editTitle = document.getElementById("edit-title");
+    if (selectedEvent.title) {
+        editTitle.value = selectedEvent.title;
     } else {
-        selectedEvent = eventBoardItem;
-        selectedEvent.style.backgroundColor = "#3b4ca8";
+        editTitle.value = "";
+    }
+
+    let editTextarea = document.getElementById("edit-textarea");
+    if (selectedEvent.description) {
+        editTextarea.value = selectedEvent.description;
+    } else {
+        editTextarea.value = "";
+    }
+
+    let editOption1 = document.getElementById("edit-option1");
+    if (selectedEvent.tagList && selectedEvent.tagList[0]) {
+        editOption1.checked = selectedEvent.tagList[0];
+    } else {
+        editOption1.checked = false;
+    }
+
+    let editOption2 = document.getElementById("edit-option2");
+    if (selectedEvent.tagList && selectedEvent.tagList[1]) {
+        editOption2.checked = selectedEvent.tagList[1];
+    } else {
+        editOption2.checked = false;
+    }
+
+    let editOption3 = document.getElementById("edit-option3");
+    if (selectedEvent.tagList && selectedEvent.tagList[2]) {
+        editOption3.checked = selectedEvent.tagList[2];
+    } else {
+        editOption3.checked = false;
+    }
+
+    let editOption4 = document.getElementById("edit-option4");
+    if (selectedEvent.tagList && selectedEvent.tagList[3]) {
+        editOption4.checked = selectedEvent.tagList[3];
+    } else {
+        editOption4.checked = false;
+    }
+
+    let editDateSelecter = document.getElementById("edit-dateSelecter");
+    if (selectedEvent.startDate) {
+        editDateSelecter.value = selectedEvent.startDate;
+    } else {
+        editDateSelecter.value = "";
+    }
+
+    let editEndDateSelecter = document.getElementById("edit-endDateSelecter");
+    if (selectedEvent.endDate) {
+        editEndDateSelecter.value = selectedEvent.endDate;
+    } else {
+        editEndDateSelecter.value = "";
+    }
+
+
+
+}
+
+// When the user clicks on <span> (x), close the modal
+editSpan.onclick = function() {
+    editModal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the editModal, close it
+window.onclick = function(event) {
+    if (event.target == editModal) {
+        editModal.style.display = "none";
     }
 }
+
+
+
+
+
+
+
+
+
+// Get the date input element
+const editDateInput = document.getElementById("edit-dateSelecter");
+
+// Get the value of the date input element and save it as a variable
+const editSelectedDate = editDateInput.value;
+
+// Log the selected date to the console
+
+
+function editSaveDate() {
+    // Get the date input element
+    const editDateInput = document.getElementById("edit-dateSelecter");
+
+    // Get the value of the date input element and save it as a variable
+    const editSelectedDate = editDateInput.value;
+
+    return  Date.parse(editSelectedDate)
+
+}
+
+function editSaveEndDate() {
+    // Get the date input element
+    const editDateInput = document.getElementById("endDateSelecter");
+
+    // Get the value of the date input element and save it as a variable
+    const selectedEndDate = editDateInput.value;
+
+    return Date.parse(selectedEndDate)
+}
+
+function editSaveTitle() {
+    let title = document.getElementById("edit-title").value;
+    return String(title)
+}
+
+function editSaveTextarea() {
+    let textarea = document.getElementById("edit-textarea").value;
+    return String(textarea)
+}
+
+function editSaveTagslist() {
+    let option1 = document.getElementById("edit-option1").checked;
+    let option2 = document.getElementById("edit-option2").checked;
+    let option3 = document.getElementById("edit-option3").checked;
+    let option4 = document.getElementById("edit-option4").checked;
+
+    return [option1,option2,option3,option4]
+}
+
+//use this function to create event on page using data
+function saveEdit(){
+    //let id =
+
+    var eventValue = [id, editSaveTitle(), editSaveTextarea(),editSaveTagslist(),saveDate(),editSaveEndDate()]
+
+    createEventBoard(id, editSaveTitle(), editSaveTextarea(),editSaveTagslist(),saveDate(),editSaveEndDate())
+
+
+    addEventArray(eventValue[0],eventValue[1],eventValue[2],eventValue[3],eventValue[4],eventValue[5])
+
+    editModal.style.display = "none";
+
+}
+
+
+
+// function eventClick(eventBoardItem) {
+//     if (selectedEvent === eventBoardItem) {
+//         selectedEvent.style.backgroundColor = "white";
+//         selectedEvent = null;
+//     } else if (selectedEvent !== null) {
+//         selectedEvent.style.backgroundColor = "white";
+//         selectedEvent = eventBoardItem;
+//         selectedEvent.style.backgroundColor = "#3b4ca8";
+//     } else {
+//         selectedEvent = eventBoardItem;
+//         selectedEvent.style.backgroundColor = "#3b4ca8";
+//     }
+// }
+
+
+    
+    
+
+
+
+
+//-------------------------BUTTONS--------------------------------
+
+//change these to changing the tags?
+
+//
+// function eventArch() {
+//     selectedEvent.remove();
+//     const EventBoard = document.getElementById("ArchiveBoard");
+//     EventBoard.querySelector(".eventBoard__Item_List").appendChild(selectedEvent);
+// }
+//
+//
+// function eventPin() {
+//     selectedEvent.remove();
+//     const EventBoard = document.getElementById("PinBoard");
+//     EventBoard.querySelector(".eventBoard__Item_List").appendChild(selectedEvent);
+// }
