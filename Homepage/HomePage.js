@@ -35,12 +35,9 @@ function createEventBoard(id,title, description, tagList, startDate, endDate) {
     eventBoardItem.setAttribute("id", id);
     eventBoardItem.setAttribute("onclick", "eventClick(this)");
 
-    console.log(endDate);
 
-    let formatStartDate = new Date(startDate);
-    let formatEndDate = new Date(endDate);
 
-    const itemContent = document.createTextNode(`${title} ${description} ${tagList} ${formatStartDate} ${formatEndDate}`);
+    const itemContent = document.createTextNode(`${title} ${description} ${tagList} ${startDate} ${endDate}`);
 
     eventBoardItem.appendChild(itemContent);
 
