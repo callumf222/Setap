@@ -1,4 +1,13 @@
-diagnose id issues
+diagnose undefined issue
+possible solutions:
+
+make id constant, never change it, always increasing it
+
+maybe its to do with not parsing events as objects at some point so they become undefined
+
+only effects edited events
+
+
 -------------------------------------------------------------
 edit popup stuff
 
