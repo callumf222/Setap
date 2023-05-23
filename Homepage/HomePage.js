@@ -1,8 +1,3 @@
-// let editTitle = document.getElementById("edit-title");
-// editTitle.value = "Hello World";
-//
-// console.log(editTitle.value);
-
 class Event {
     constructor(id,title, description, tagList, startDate, endDate) {
         this.id = id
@@ -73,7 +68,6 @@ if (typeof(Storage) !== "undefined") {
 
         // Save the updated array to local storage
         localStorage.setItem("events", JSON.stringify(events));
-        console.log(events)
     }
 
     function deleteEvent() {
@@ -81,10 +75,21 @@ if (typeof(Storage) !== "undefined") {
 
         events.splice(selectedEvent.id, 1);
 
-        selectedEvent.remove();
+        events.forEach((event, newIndex) => {
+            event.id = newIndex;
+        })
+
+
+        let eventHtml = document.getElementById(selectedEvent.id);
+
+        eventHtml.remove();
+
+
 
         // Save the updated array to local storage
         localStorage.setItem("events", JSON.stringify(events));
+
+
     }
 
     // Example usage:
@@ -110,6 +115,7 @@ if (typeof(Storage) !== "undefined") {
     //currentEvent = events.find(item=> item.id === 0)
     // Display the events
     //console.log(events[0].title);
+    console.log("loaded " + events.length + " events");
     console.log(events);
 
     //-------------------------LOAD EVENTS --------------------------------
@@ -132,7 +138,7 @@ var modal = document.getElementById("myModal");
 var AddItemBtn = document.getElementById("AddItemBtn");
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+var span = document.getElementById("Span1");
 
 var selectedEvent = null;
 
@@ -205,7 +211,7 @@ function saveTagslist() {
 
 //use this function to create event on page using data
 function saveAll(){
-    var id = events.length;
+    let id = events.length;
 
     var eventValue = [id, saveTitle(), saveTextarea(),saveTagslist(),saveDate(),saveEndDate()]
     
@@ -235,8 +241,6 @@ function eventClick(eventBoardItem) {
     selectedEvent = events[eventBoardItem.id];
 
     //put values into edit modal
-
-
 
 
 
@@ -284,14 +288,34 @@ function eventClick(eventBoardItem) {
 
     let editDateSelecter = document.getElementById("edit-dateSelecter");
     if (selectedEvent.startDate) {
-        editDateSelecter.value = selectedEvent.startDate;
+
+        let startDate = new Date(selectedEvent.startDate);
+
+
+        let day = ("0" + startDate.getDate()).slice(-2);
+        let month = ("0" + (startDate.getMonth() + 1)).slice(-2);
+
+        let startDateFormat = startDate.getFullYear()+"-"+(month)+"-"+(day) ;
+
+
+        editDateSelecter.value = startDateFormat;
     } else {
         editDateSelecter.value = "";
     }
 
     let editEndDateSelecter = document.getElementById("edit-endDateSelecter");
     if (selectedEvent.endDate) {
-        editEndDateSelecter.value = selectedEvent.endDate;
+
+        let endDate = new Date(selectedEvent.endDate);
+
+
+        let day = ("0" + endDate.getDate()).slice(-2);
+        let month = ("0" + (endDate.getMonth() + 1)).slice(-2);
+
+        let endDateFormat = endDate.getFullYear()+"-"+(month)+"-"+(day) ;
+
+
+        editEndDateSelecter.value = endDateFormat;
     } else {
         editEndDateSelecter.value = "";
     }
@@ -371,11 +395,15 @@ function editSaveTagslist() {
 
 //use this function to create event on page using data
 function saveEdit(){
-    //let id =
 
-    var eventValue = [id, editSaveTitle(), editSaveTextarea(),editSaveTagslist(),saveDate(),editSaveEndDate()]
+    let id = events.length;
 
-    createEventBoard(id, editSaveTitle(), editSaveTextarea(),editSaveTagslist(),saveDate(),editSaveEndDate())
+    deleteEvent(selectedEvent.id)
+
+
+    let eventValue = [id, editSaveTitle(), editSaveTextarea(),editSaveTagslist(),editSaveDate(),editSaveEndDate()]
+
+    createEventBoard(id, editSaveTitle(), editSaveTextarea(),editSaveTagslist(),editSaveDate(),editSaveEndDate())
 
 
     addEventArray(eventValue[0],eventValue[1],eventValue[2],eventValue[3],eventValue[4],eventValue[5])

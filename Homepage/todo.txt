@@ -10,7 +10,7 @@ how does other popup work
 
 add edit title to edit popup
 
-show events details in popup
+//delete it from array and board DO THIS!!!!!!!!!!!!!!!
 
 move buttons to edit popup
 fix delete event function
@@ -22,32 +22,4 @@ add tags for pin and archived instead
 
 implement next event display (search through array for soonest date?)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-make a small test file with just the popup to test putting values into fields
 
