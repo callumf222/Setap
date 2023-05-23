@@ -1,21 +1,9 @@
-
-
-figure out better way to display
+diagnose id issues
 -------------------------------------------------------------
-
-add an edit popup:
-https://chat.openai.com/c/573cbb9f-2707-4e28-85d2-0af9c4945589
-
-how does other popup work
+edit popup stuff
 
 add edit title to edit popup
-
-//delete it from array and board DO THIS!!!!!!!!!!!!!!!
-
 move buttons to edit popup
-fix delete event function
-
-
 add tags for pin and archived instead
 -------------------------------------------------------------
 

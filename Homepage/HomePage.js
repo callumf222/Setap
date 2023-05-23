@@ -35,7 +35,12 @@ function createEventBoard(id,title, description, tagList, startDate, endDate) {
     eventBoardItem.setAttribute("id", id);
     eventBoardItem.setAttribute("onclick", "eventClick(this)");
 
-    const itemContent = document.createTextNode(`${title} ${description} ${tagList} ${startDate} ${endDate}`);
+    console.log(endDate);
+
+    let formatStartDate = new Date(startDate);
+    let formatEndDate = new Date(endDate);
+
+    const itemContent = document.createTextNode(`${title} ${description} ${tagList} ${formatStartDate} ${formatEndDate}`);
 
     eventBoardItem.appendChild(itemContent);
 
@@ -68,6 +73,8 @@ if (typeof(Storage) !== "undefined") {
 
         // Save the updated array to local storage
         localStorage.setItem("events", JSON.stringify(events));
+
+        console.log(events[events.length - 1]);
     }
 
     function deleteEvent() {
@@ -211,6 +218,9 @@ function saveTagslist() {
 
 //use this function to create event on page using data
 function saveAll(){
+
+    console.log("before save all" + events);
+
     let id = events.length;
 
     var eventValue = [id, saveTitle(), saveTextarea(),saveTagslist(),saveDate(),saveEndDate()]
@@ -221,7 +231,9 @@ function saveAll(){
     addEventArray(eventValue[0],eventValue[1],eventValue[2],eventValue[3],eventValue[4],eventValue[5])
 
     modal.style.display = "none";
-    
+    console.log(events);
+
+    console.log("after save all" + events);
 }
 
 //-------------------------EDIT POPUP--------------------------------
@@ -235,6 +247,10 @@ const editSpan = document.getElementById("editSpan");
 const editEvent = null;
 
 function eventClick(eventBoardItem) {
+
+    console.log("clicked" + events);
+
+
     let editModal = document.getElementById("editModal");
     editModal.style.display = "block";
 
@@ -320,7 +336,7 @@ function eventClick(eventBoardItem) {
         editEndDateSelecter.value = "";
     }
 
-
+    console.log("after clicked" + events);
 
 }
 
@@ -396,6 +412,8 @@ function editSaveTagslist() {
 //use this function to create event on page using data
 function saveEdit(){
 
+    console.log("before saveedit" + events);
+
     let id = events.length;
 
     deleteEvent(selectedEvent.id)
@@ -410,6 +428,7 @@ function saveEdit(){
 
     editModal.style.display = "none";
 
+    console.log("after saveedit" + events);
 }
 
 
