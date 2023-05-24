@@ -1,4 +1,4 @@
-import { addEvent } from '/getAndReturnCSV.js';
+//this file is redundant and will probably get deleted at some point
 
 function submitting() {
     var userInput = document.getElementById("pasteshare").value;

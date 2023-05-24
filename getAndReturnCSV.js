@@ -113,9 +113,31 @@ class Event {
 	// console.log("Event tagList ="+events[0].tagList);
 	// console.log("Event start date ="+events[0].startDate);
 	// console.log("Event end date ="+events[0].endDate);
+
+
+	function submitting() {
+		var userInput = document.getElementById("pasteshare").value;
+		const submitArray = userInput.split(",");
+		
+		addEvent(submitArray[0],submitArray[1],submitArray[2],submitArray[3],submitArray[4],submitArray[5],submitArray[6],submitArray[7],submitArray[8]);
+		//addEvent(addId,addTitle,addDescription,addTag1,addTag2,addTag3,addTag4,addStartDate,addEndDate);
+		//console.log(submitArray[1]);
+		console.log(events);
+
+		document.getElementById("pasteshare").value = "";
+	}
+	
+	function copyToClipboard(){
+		let text1 = "Dummy Copy"; //this needs to access a CSV file and return all its contents
+	
+	
+		navigator.clipboard.writeText(text1).value;
+	}
+
 	
   } else {
 	console.log("Local storage is not supported.");
   }
+
+
   
-export { addEvent, deleteEvent };
