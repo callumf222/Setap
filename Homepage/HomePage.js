@@ -133,7 +133,6 @@ if (typeof(Storage) !== "undefined") {
 
 
 
-
     function deleteEvent() {
         // Remove the event from the array
 
@@ -457,7 +456,7 @@ function editSaveDate() {
 
 function editSaveEndDate() {
     // Get the date input element
-    const editDateInput = document.getElementById("endDateSelecter");
+    const editDateInput = document.getElementById("edit-endDateSelecter");
 
     // Get the value of the date input element and save it as a variable
     const selectedEndDate = editDateInput.value;
