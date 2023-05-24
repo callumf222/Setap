@@ -601,7 +601,7 @@ delSpan.onclick = function() {
 window.onclick = function(event) {
     if (event.target == delModal) {
         delModal.style.display = "none";
-    }
+}
 }
 
 function deleteYes() {

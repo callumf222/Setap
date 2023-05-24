@@ -4,6 +4,14 @@ body{
     background-color: #9DAAF2;
 }
 
+.filters{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 .eventNextHolder{
     justify-content: center;
 }
