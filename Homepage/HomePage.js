@@ -580,3 +580,36 @@ function eventPin() {
     const EventBoard = document.getElementById("PinBoard");
     EventBoard.querySelector(".eventBoard__Item_List").appendChild(eventBoardItem);
 }
+
+// Get the modal
+const delModal = document.getElementById("delModal");
+
+// Get the <span> element that closes the modal
+const delSpan = document.getElementById("delSpan");
+function delConfirm() {
+
+    let delModal = document.getElementById("delModal");
+    delModal.style.display = "block";
+
+}
+
+delSpan.onclick = function() {
+    delModal.style.display = "none";
+}
+
+// When the user clicks anywhere
+window.onclick = function(event) {
+    if (event.target == delModal) {
+        delModal.style.display = "none";
+    }
+}
+
+function deleteYes() {
+    delModal.style.display = "none";
+    editModal.style.display = "none";
+    deleteEvent();
+}
+
+function deleteNo() {
+    delModal.style.display = "none";
+}
