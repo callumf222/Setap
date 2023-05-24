@@ -220,3 +220,31 @@ body{
     width: 80%
 }
 
+
+.filters{
+    position: absolute;
+    bottom: -1%;
+    left: 3%;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.eventBoard__WorkButton, .eventBoard__SocialButton, .eventBoard__ChoresButton {
+    padding-right: 20px;
+}
+
+.eventBoard__WorkButton:hover{
+    color: #3B4CA8;
+}
+
+.eventBoard__SocialButton:hover{
+    color: #3B4CA8;
+}
+
+.eventBoard__ChoresButton:hover{
+    color: #3B4CA8;
+}
+
+.eventBoard__ReminderButton:hover{
+    color: #3B4CA8;
+}
