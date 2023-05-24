@@ -285,12 +285,15 @@ function saveAll(){
     createEventBoard(id, saveTitle(), saveTextarea(),saveTagslist(),saveDate(),saveEndDate())
 
 
+
     addEventArray(eventValue[0],eventValue[1],eventValue[2],eventValue[3],eventValue[4],eventValue[5])
 
     modal.style.display = "none";
 
     updateNextEvent();
-
+    // let eventsArray = localStorage.getItem("events");
+    // console.log("what is this"+eventsArray);
+    // console.log("the tags are saved as: " + eventsArray[id].tagList);
 
     ;
 }
