@@ -1,6 +1,8 @@
 diagnose undefined issue
 possible solutions:
 
+keep track of localStorage in f12
+
 make id constant, never change it, always increasing it
 
 maybe its to do with not parsing events as objects at some point so they become undefined

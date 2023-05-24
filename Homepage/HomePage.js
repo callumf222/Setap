@@ -180,9 +180,10 @@ if (typeof(Storage) !== "undefined") {
     events = storedEvents ? JSON.parse(storedEvents) : [];
 
 
-    //currentEvent = events.find(item=> item.id === 0)
+    // currentEvent = events.find(item=> item.id === 0)
     // Display the events
-    //console.log(events[0].title);
+    // console.log(events[0].title);
+
     console.log("loaded " + events.length + " events");
     console.log(events);
     updateNextEvent();
@@ -301,7 +302,6 @@ function saveAll(){
     modal.style.display = "none";
 
     updateNextEvent();
-
 
 }
 
