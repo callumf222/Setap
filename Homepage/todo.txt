@@ -22,3 +22,5 @@ add tags for pin and archived instead
 
 
 
+i think check for getting events by events[id] as this wont work
+replace with events.find(event => event.id === id)

@@ -110,12 +110,14 @@ if (typeof(Storage) !== "undefined") {
 
     // Function to add a new event#
     function addEventArray(addID,addTitle,addDescription,addTagsList,addStartDate,addEndDate) {
+
+
         // Create a new event object
         const id = addID;
         const title = addTitle;
         const description = addDescription;
         const tagList = addTagsList;
-        const startDate = new Date (parseInt(addStartDate));
+        const startDate = new Date (parseInt(addStartDate)); //if im passing a date object here, this should make errors but it isnt somehow?
         const endDate = new Date (parseInt(addEndDate));
 
         const event = new Event(id,title,description,tagList,startDate,endDate);
@@ -128,6 +130,9 @@ if (typeof(Storage) !== "undefined") {
 
         console.log(events[events.length - 1]);
     }
+
+
+
 
     function deleteEvent() {
         // Remove the event from the array
@@ -313,17 +318,18 @@ const editModal = document.getElementById("editModal");
 // Get the <span> element that closes the modal
 const editSpan = document.getElementById("editSpan");
 
-const editEvent = null;
+
 
 function eventClick(eventBoardItem) {
-
-
 
 
     let editModal = document.getElementById("editModal");
     editModal.style.display = "block";
 
-    selectedEvent = events[eventBoardItem.id];
+    console.log()
+
+    events.forEach(event => { if (event.id === parseInt(eventBoardItem.id)) { selectedEvent = event } })
+
 
     //put values into edit modal
 
@@ -481,8 +487,6 @@ function editSaveTagslist() {
 //use this function to create event on page using data
 function saveEdit(){
 
-    console.log("before saveedit" + events[0].id+ " " + events[0].title + " " + events[1].id+ " " + events[1].title);
-
     let id = events.length;
 
     deleteEvent(selectedEvent.id)
@@ -499,25 +503,9 @@ function saveEdit(){
 
     updateNextEvent();
 
-    console.log("after saveedit" + events[0].id+ " " + events[0].title + " " + events[1].id+ " " + events[1].title);
-
 }
 
 
-
-// function eventClick(eventBoardItem) {
-//     if (selectedEvent === eventBoardItem) {
-//         selectedEvent.style.backgroundColor = "white";
-//         selectedEvent = null;
-//     } else if (selectedEvent !== null) {
-//         selectedEvent.style.backgroundColor = "white";
-//         selectedEvent = eventBoardItem;
-//         selectedEvent.style.backgroundColor = "#3b4ca8";
-//     } else {
-//         selectedEvent = eventBoardItem;
-//         selectedEvent.style.backgroundColor = "#3b4ca8";
-//     }
-// }
 var closestEvent = null;
 
 
