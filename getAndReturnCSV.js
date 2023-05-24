@@ -118,7 +118,16 @@ class Event {
 	function submitting() {
 		var userInput = document.getElementById("pasteshare").value;
 		const submitArray = userInput.split(",");
-		
+
+        let idArray = [];
+        //loop through events
+        events.foreach((event) => {
+            //add id to array
+            idArray.push(event.id);
+        }
+        const maxId = Math.max(...idArray);
+        //use maxid +1 +2 etc for clean ids
+
 		addEvent(submitArray[0],submitArray[1],submitArray[2],submitArray[3],submitArray[4],submitArray[5],submitArray[6],submitArray[7],submitArray[8]);
 		//addEvent(addId,addTitle,addDescription,addTag1,addTag2,addTag3,addTag4,addStartDate,addEndDate);
 		//console.log(submitArray[1]);
