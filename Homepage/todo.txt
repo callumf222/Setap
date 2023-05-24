@@ -19,8 +19,6 @@ add tags for pin and archived instead
 add popup for delete
 -------------------------------------------------------------
 
-filters functionality
-
 make filter buttons hold colour on press
 
 

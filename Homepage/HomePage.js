@@ -606,6 +606,14 @@ window.onclick = function(event) {
 }
 }
 
+
+//------------------------------------FILTERS----------------------------------
+
+const filterWorkButton = document.getElementById("eventBoard__WorkButton");
+const filterSocialButton = document.getElementById("eventBoard__SocialButton");
+const filterChoresButton = document.getElementById("eventBoard__ChoresButton");
+const filterReminderButton = document.getElementById("eventBoard__ReminderButton");
+
 function deleteYes() {
     delModal.style.display = "none";
     editModal.style.display = "none";
@@ -620,6 +628,8 @@ var filterWorkOn = false;
 function filterWork() {
     if (filterWorkOn === false) {
 
+        filterWorkButton.classList.add("active")
+
         events.forEach(event => {
             let eventBoardItem = document.getElementById(event.id);
 
@@ -632,6 +642,7 @@ function filterWork() {
         filterWorkOn = true;
 
     } else {
+        filterWorkButton.classList.remove("active")
         events.forEach(event => {
             let eventBoardItem = document.getElementById(event.id);
 
@@ -647,6 +658,7 @@ var filterSocialOn = false;
 function filterSocial() {
     if (filterSocialOn === false) {
 
+        filterSocialButton.classList.add("active")
         events.forEach(event => {
             let eventBoardItem = document.getElementById(event.id);
 
@@ -659,6 +671,7 @@ function filterSocial() {
         filterSocialOn = true;
 
     } else {
+        filterSocialButton.classList.remove("active")
         events.forEach(event => {
             let eventBoardItem = document.getElementById(event.id);
 
@@ -675,6 +688,7 @@ var filterChoresOn = false;
 function filterChores() {
     if (filterChoresOn === false) {
 
+        filterChoresButton.classList.add("active")
         events.forEach(event => {
             let eventBoardItem = document.getElementById(event.id);
 
@@ -687,6 +701,7 @@ function filterChores() {
         filterChoresOn = true;
 
     } else {
+        filterChoresButton.classList.remove("active")
         events.forEach(event => {
             let eventBoardItem = document.getElementById(event.id);
 
@@ -701,8 +716,10 @@ function filterChores() {
 
 var filterReminderOn = false;
 function filterReminder() {
+
     if (filterReminderOn === false) {
 
+        filterReminderButton.classList.add("active")
         events.forEach(event => {
             let eventBoardItem = document.getElementById(event.id);
 
@@ -715,6 +732,8 @@ function filterReminder() {
         filterReminderOn = true;
 
     } else {
+        filterReminderButton.classList.remove("active")
+
         events.forEach(event => {
             let eventBoardItem = document.getElementById(event.id);
 
