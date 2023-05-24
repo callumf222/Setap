@@ -12,14 +12,11 @@ when page reloads, the date objects change to 1970??
 -------------------------------------------------------------
 edit popup stuff
 
-add edit title to edit popup
-move buttons to edit popup
+
 add tags for pin and archived instead
 
-add popup for delete
--------------------------------------------------------------
 
-make filter buttons hold colour on press
+-------------------------------------------------------------
 
 
 
