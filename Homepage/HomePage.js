@@ -532,7 +532,7 @@ function createNextEvent() {
 
         }
     })
-    const itemContent = document.createTextNode(`Title: ${closestEvent.title} | Description: ${closestEvent.description} | Tags: ${closestEvent.tagList} | StartDate: ${convertTimestamp(closestEvent.startDate)} | EndDate: ${convertTimestamp(closestEvent.endDate)}`);
+    const itemContent = document.createTextNode(`Title: ${closestEvent.title} | Description: ${closestEvent.description} | Tags: ${convertTagList(closestEvent.tagList)} | StartDate: ${convertTimestamp(closestEvent.startDate)} | EndDate: ${convertTimestamp(closestEvent.endDate)}`);
 
 
     nextEvent.appendChild(itemContent);

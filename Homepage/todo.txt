@@ -7,6 +7,7 @@ maybe its to do with not parsing events as objects at some point so they become 
 
 only effects edited events
 
+when page reloads, the date objects change to 1970??
 
 -------------------------------------------------------------
 edit popup stuff
