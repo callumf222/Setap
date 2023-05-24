@@ -291,9 +291,6 @@ function saveAll(){
     modal.style.display = "none";
 
     updateNextEvent();
-    // let eventsArray = localStorage.getItem("events");
-    // console.log("what is this"+eventsArray);
-    // console.log("the tags are saved as: " + eventsArray[id].tagList);
 
     ;
 }
@@ -550,18 +547,19 @@ function createNextEvent() {
 function updateNextEvent() {
     //if nextEvent is null, create it
     //if nextEvent is not null, remove it and create it
+    if (events === null) {
 
-    if (document.getElementById("nextEvent") === null) {
-        createNextEvent();
-
-
-    } else {
-        document.getElementById("nextEvent").remove();
-        createNextEvent();
+        if (document.getElementById("nextEvent") === null) {
+            createNextEvent();
 
 
+        } else {
+            document.getElementById("nextEvent").remove();
+            createNextEvent();
+
+
+        }
     }
-
 }
 
 
