@@ -113,7 +113,9 @@ class Event {
 	// console.log("Event tagList ="+events[0].tagList);
 	// console.log("Event start date ="+events[0].startDate);
 	// console.log("Event end date ="+events[0].endDate);
-
+	
   } else {
 	console.log("Local storage is not supported.");
   }
+  
+export { addEvent, deleteEvent };
