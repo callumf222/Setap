@@ -85,7 +85,7 @@ function createEventBoard(id,title, description, tagList, startDate, endDate) {
     eventBoardItem.setAttribute("id", id);
     eventBoardItem.setAttribute("onclick", "eventClick(this)");
 
-    const itemContent = document.createTextNode(`TItle: ${title} | Description: ${description} | Tags: ${convertTagList(tagList)} | StartDate: ${convertTimestamp(startDate)} | EndDate: ${convertTimestamp(endDate)}`);
+    const itemContent = document.createTextNode(`Title: ${title} | Description: ${description} | Tags: ${convertTagList(tagList)} | StartDate: ${convertTimestamp(startDate)} | EndDate: ${convertTimestamp(endDate)}`);
 
     eventBoardItem.appendChild(itemContent);
 
@@ -532,8 +532,8 @@ function createNextEvent() {
 
         }
     })
+    const itemContent = document.createTextNode(`Title: ${closestEvent.title} | Description: ${closestEvent.description} | Tags: ${closestEvent.tagList} | StartDate: ${convertTimestamp(closestEvent.startDate)} | EndDate: ${convertTimestamp(closestEvent.endDate)}`);
 
-    let itemContent = document.createTextNode(`${closestEvent.title}  ${closestEvent.description} ${closestEvent.tagList} ${closestEvent.startDate} ${closestEvent.endDate}`); //
 
     nextEvent.appendChild(itemContent);
 
