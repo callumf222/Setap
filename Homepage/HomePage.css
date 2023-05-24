@@ -4,9 +4,6 @@ body{
     background-color: #9DAAF2;
 }
 
-.eventNextHolder{
-    justify-content: center;
-}
 
 .eventNext {
     display: flex;
@@ -72,7 +69,7 @@ body{
     border-radius: 10px;
     margin: 20px;
     padding: 20px 20px 50px;
-    height: 750px;
+    height: 650px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.6);
 }
 
@@ -140,7 +137,7 @@ body{
     border-radius: 50%;
     height: 60px;
     width: 60px;
-    top: 90%;
+    top: 93%;
     left: 95%;
     cursor: pointer;
 }
