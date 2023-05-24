@@ -103,7 +103,7 @@ if (typeof(Storage) !== "undefined") {
 
 
 
-
+        updateNextEvent();
     }
 
     // Example usage:
@@ -131,6 +131,7 @@ if (typeof(Storage) !== "undefined") {
     //console.log(events[0].title);
     console.log("loaded " + events.length + " events");
     console.log(events);
+    updateNextEvent();
 
     //-------------------------LOAD EVENTS --------------------------------
 
@@ -238,6 +239,8 @@ function saveAll(){
     addEventArray(eventValue[0],eventValue[1],eventValue[2],eventValue[3],eventValue[4],eventValue[5])
 
     modal.style.display = "none";
+
+    updateNextEvent();
 
 
     ;
@@ -435,7 +438,10 @@ function saveEdit(){
 
     editModal.style.display = "none";
 
+    updateNextEvent();
+
     console.log("after saveedit" + events[0].id+ " " + events[0].title + " " + events[1].id+ " " + events[1].title);
+
 }
 
 
@@ -453,49 +459,77 @@ function saveEdit(){
 //         selectedEvent.style.backgroundColor = "#3b4ca8";
 //     }
 // }
+var closestEvent = null;
+
+
+function createNextEvent() {
+    let nextEvent = document.createElement("div");
+    nextEvent.className = "eventBoard__Item";
+    nextEvent.id = "nextEvent";
+
+    // search through events for the next event
+
+    const now = new Date();
+
+    let closestDate = null;
+    let minDifference = Infinity;
+
+    events.forEach(event => {
+        let eventDate = new Date(event.startDate);
+        let difference = eventDate - now;
+
+        if (difference < minDifference) {
+            minDifference = difference;
+            closestDate = eventDate;
+            closestEvent = event;
+
+        }
+    })
+
+    let itemContent = document.createTextNode(`${closestEvent.title}  ${closestEvent.description} ${closestEvent.tagList} ${closestEvent.startDate} ${closestEvent.endDate}`); //
+
+    nextEvent.appendChild(itemContent);
+
+    const EventBoard = document.getElementById("nextBoard");
+    EventBoard.querySelector(".eventNext__Item-input").appendChild(nextEvent);
+
+}
 
 function updateNextEvent() {
     //if nextEvent is null, create it
     //if nextEvent is not null, remove it and create it
 
     if (document.getElementById("nextEvent") === null) {
-        let nextEvent = document.createElement("div");
-        nextEvent.className = "eventBoard__Item";
-        nextEvent.id = "nextEvent";
-
-        // search through events for the next event
+        createNextEvent();
 
 
     } else {
         document.getElementById("nextEvent").remove();
-        let nextEvent = document.createElement("div");
-        nextEvent.className = "eventBoard__Item";
-        nextEvent.id = "nextEvent";
+        createNextEvent();
 
 
     }
 
 }
-    
-    
 
 
+function eventArch() {
+
+    let eventBoardItem = document.getElementById(selectedEvent.id);
+
+    eventBoardItem.remove();
+    const EventBoard = document.getElementById("ArchiveBoard");
+    EventBoard.querySelector(".eventBoard__Item_List").appendChild(eventBoardItem);
+}
 
 
-//-------------------------BUTTONS--------------------------------
+function eventPin() {
 
-//change these to changing the tags?
+    //maybe just update the tag which gets checked on saveedit
 
-//
-// function eventArch() {
-//     selectedEvent.remove();
-//     const EventBoard = document.getElementById("ArchiveBoard");
-//     EventBoard.querySelector(".eventBoard__Item_List").appendChild(selectedEvent);
-// }
-//
-//
-// function eventPin() {
-//     selectedEvent.remove();
-//     const EventBoard = document.getElementById("PinBoard");
-//     EventBoard.querySelector(".eventBoard__Item_List").appendChild(selectedEvent);
-// }
+    let eventBoardItem = document.getElementById(selectedEvent.id);
+
+    eventBoardItem.remove();
+    const EventBoard = document.getElementById("PinBoard");
+    EventBoard.querySelector(".eventBoard__Item_List").appendChild(eventBoardItem);
+}

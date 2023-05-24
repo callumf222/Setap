@@ -14,9 +14,11 @@ edit popup stuff
 add edit title to edit popup
 move buttons to edit popup
 add tags for pin and archived instead
+
+add popup for delete
 -------------------------------------------------------------
 
 
-implement next event display (search through array for soonest date?)
+
 
 

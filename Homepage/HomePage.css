@@ -110,9 +110,8 @@ body{
 }
 
 .eventBoard__DButton {
-    position: absolute;
-    bottom: 10px;
-    right: 110px;
+    position: relative;
+    left:  350px;
     font-size: 30px;
     color: white;
     border-radius: 50%;
@@ -121,9 +120,17 @@ body{
 }
 
 .eventBoard__PButton {
-    position: absolute;
-    bottom: 10px;
-    right: 150px;
+    position: relative;
+    left:  350px;
+    font-size: 30px;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.eventBoard__AButton {
+    position: relative;
+    left:  350px;
     font-size: 30px;
     color: white;
     border-radius: 50%;

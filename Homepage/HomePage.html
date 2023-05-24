@@ -69,10 +69,10 @@
 
 
     
-<div class="eventNextHolder">
+<div class="eventNextHolder" id="nextBoard">
     <div class="eventNext">
         <div class="eventNext__Title">Next event</div>
-        <div class="eventNext__Item-input">This will be the next event</div>
+        <div class="eventNext__Item-input"></div>
     </div>
 </div>
 
@@ -114,19 +114,10 @@
     </div>
 
 
-    <!--     Ben D, Add these two buttons into the edit popup, they have icons and whatnot                  -->
-    <div class="eventBoard__PButton">
-        <i class="fas fa-thumbtack" onclick="eventPin()"></i>
-    </div>
-
-    <div class="eventBoard__DButton">
-        <i class="fas fa-trash" onclick="deleteEvent()"></i>
-    </div>
-
-    <button id="AddItemBtn" class="AddItem">+</button>
 
 </div>
 
+    <button id="AddItemBtn" class="AddItem">+</button>
 
 <!-- Modal button -->
 <div id="myModal" class="modal">
@@ -185,6 +176,16 @@
         <label for="edit-endDateSelecter">End Date: </label><br>
         <input type="date" name="" id="edit-endDateSelecter"><br><br>
         <button onclick="saveEdit()">Save All</button>
+        <div class="eventBoard__AButton">
+            <i class="fas fa-archive" onclick="eventArch()"></i>
+        </div>
+        <div class="eventBoard__PButton">
+            <i class="fas fa-thumbtack" onclick="eventPin()"></i>
+        </div>
+
+        <div class="eventBoard__DButton">
+            <i class="fas fa-trash" onclick="deleteEvent()"></i>
+        </div>
 
 
     </div>
