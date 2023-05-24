@@ -1,3 +1,4 @@
+
 class Event {
     constructor(id,title, description, tagList, startDate, endDate) {
         this.id = id
@@ -7,7 +8,7 @@ class Event {
         this.startDate = startDate;
         this.endDate = endDate;
     }
-    set changeid(newId) {this.id = newid;}
+    set changeid(newId) {this.id = newId;}
     get getid(){return this.id;}
 
     set changeTitle(newTitle) {this.title = newTitle;}
@@ -117,14 +118,23 @@ if (typeof(Storage) !== "undefined") {
 
         // Save the updated array to local storage
         localStorage.setItem("events", JSON.stringify(events));
+
+        console.log(events[events.length - 1]);
     }
 
     function deleteEvent() {
         // Remove the event from the array
 
+
         events.splice(selectedEvent.id, 1);
 
         events.forEach((event, newIndex) => {
+
+            //change id of the event in html
+            let eventHtml = document.getElementById(String(event.id));
+
+            eventHtml.id = String(newIndex);
+
             event.id = newIndex;
         })
 
@@ -137,6 +147,8 @@ if (typeof(Storage) !== "undefined") {
 
         // Save the updated array to local storage
         localStorage.setItem("events", JSON.stringify(events));
+
+
 
 
     }
@@ -260,6 +272,9 @@ function saveTagslist() {
 
 //use this function to create event on page using data
 function saveAll(){
+
+
+
     let id = events.length;
 
     var eventValue = [id, saveTitle(), saveTextarea(),saveTagslist(),saveDate(),saveEndDate()]
@@ -270,7 +285,9 @@ function saveAll(){
     addEventArray(eventValue[0],eventValue[1],eventValue[2],eventValue[3],eventValue[4],eventValue[5])
 
     modal.style.display = "none";
-    
+
+
+    ;
 }
 
 //-------------------------EDIT POPUP--------------------------------
@@ -284,6 +301,10 @@ const editSpan = document.getElementById("editSpan");
 const editEvent = null;
 
 function eventClick(eventBoardItem) {
+
+
+
+
     let editModal = document.getElementById("editModal");
     editModal.style.display = "block";
 
@@ -445,6 +466,8 @@ function editSaveTagslist() {
 //use this function to create event on page using data
 function saveEdit(){
 
+    console.log("before saveedit" + events[0].id+ " " + events[0].title + " " + events[1].id+ " " + events[1].title);
+
     let id = events.length;
 
     deleteEvent(selectedEvent.id)
@@ -459,6 +482,7 @@ function saveEdit(){
 
     editModal.style.display = "none";
 
+    console.log("after saveedit" + events[0].id+ " " + events[0].title + " " + events[1].id+ " " + events[1].title);
 }
 
 
@@ -477,7 +501,28 @@ function saveEdit(){
 //     }
 // }
 
+function updateNextEvent() {
+    //if nextEvent is null, create it
+    //if nextEvent is not null, remove it and create it
 
+    if (document.getElementById("nextEvent") === null) {
+        let nextEvent = document.createElement("div");
+        nextEvent.className = "eventBoard__Item";
+        nextEvent.id = "nextEvent";
+
+        // search through events for the next event
+
+
+    } else {
+        document.getElementById("nextEvent").remove();
+        let nextEvent = document.createElement("div");
+        nextEvent.className = "eventBoard__Item";
+        nextEvent.id = "nextEvent";
+
+
+    }
+
+}
     
     
 
