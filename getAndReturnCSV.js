@@ -1,140 +1,119 @@
-const fs = require('fs');
-const {parse} = require('csv-parse');
 
 class Event {
-
-	constructor(title,description,tagList,startDate,endDate){
-		this.title = title;
-		this.description = description;
-		this.tagList = tagList;
-		this.startDate = startDate;
-		this.endDate = endDate;
+	constructor(id,title, description, tagList, startDate, endDate) {
+		this.id = id
+	  	this.title = title;
+	  	this.description = description;
+	  	this.tagList = tagList;
+	  	this.startDate = startDate;
+	  	this.endDate = endDate;
 	}
+		set changeid(newId) {this.id = newid;}
+		get getid(){return this.id;}
 
-	//---------------Getters and setters for the Event objects----------------
-	set changeTitle(newTitle) {this.title = newTitle;}
-	get getTitle(){return this.title;}
-
-	set changeDescription(newDescription) {this.description = newDescription;}
-	get getDescription(){return this.description;}
-
-	set changeTagList(newTaglist) {this.tagList= newTaglist;}
-	get getTagList(){return this.tagList;}
-
-	set changeStartDate(newStartDate) {this.startDate = newStartDate;}
-	get getStartDate(){return this.startDate;}
-
-	set changeEndDate(newEndDate) {this.endDate = newEndDate;}
-	get getEndDate(){return this.endDate;}
-
-}
-
-
-
-// fromCSV this takes the csv used in app and asynchronously reads and converts it into the array we use for storage  
-async function fromCSV() {
-	const csvData = await fs.promises.readFile('events.csv', 'utf-8');
+	  	set changeTitle(newTitle) {this.title = newTitle;}
+	  	get getTitle(){return this.title;}
   
-	return new Promise((resolve, reject) => {
-	  parse(csvData, { delimiter: ',' })
-		.on('readable', function () {
-		  let row;
-		  while ((row = this.read())) {
-
-			// code here responisible for taking the csv line and spliting it into the correct layout
-			const title = row[0];
-			const description = row[1];
-			const tagList = [
-			  row[2] === 'true',
-			  row[3] === 'true',
-			  row[4] === 'true',
-			  row[5] === 'true'
-			];
-			const startDate = new Date(parseInt(row[6])); // date is storred in csv as a string of numbers (Epoch time) then converted to javascript date datatype
-			const endDate = new Date(parseInt(row[7]));
-			// event is created  then pushed to the array
-			const event = new Event(title, description, tagList, startDate, endDate); 
-			eventsList.push(event);
-
-		  }
-		})
-		.on('end', function () {
-		  resolve(eventsList);
-		})
-		.on('error', function (error) {
-		  reject(error);
-		});
-	});
-}
-
-
-// adds event to the csv 
-function addEvent(addTitle,addDescription,addTag1,addTag2,addTag3,addTag4,addStartDate,addEndDate){
-	const title = addTitle;
-	const description = addDescription;
-	const tagList = [
+	  	set changeDescription(newDescription) {this.description = newDescription;}
+	  	get getDescription(){return this.description;}
+  
+	  	set changeTagList(newTaglist) {this.tagList= newTaglist;}
+	  	get getTagList(){return this.tagList;}
+  
+	  	set changeStartDate(newStartDate) {this.startDate = newStartDate;}
+	  	get getStartDate(){return this.startDate;}
+  
+	  	set changeEndDate(newEndDate) {this.endDate = newEndDate;}
+	  	get getEndDate(){return this.endDate;}
+  
+  }  
+  
+  
+//   function addEvent(addTitle,addDescription,addTag1,addTag2,addTag3,addTag4,addStartDate,addEndDate) {
+// 	// Create a new event object
+// 	const title = addTitle;
+// 	const description = addDescription;
+// 	const tagList = [
+// 	  addTag1,addTag2,addTag3,addTag4
+// 	];
+// 	const startDate = addStartDate;
+// 	const endDate = addEndDate;
+	
+// 	const event = new Event(title,description,tagList,startDate,endDate);
+  
+// 	// Add the event to the array
+// 	events.push(event);
+  
+// 	// Save the updated array to local storage
+// 	localStorage.setItem("events", JSON.stringify(events));
+//   }
+  
+  
+  if (typeof(Storage) !== "undefined") {
+	// Retrieve the events from local storage
+	let storedEvents = localStorage.getItem("events");
+  
+	// Check if there are previously stored events
+	let events = storedEvents ? JSON.parse(storedEvents) : [];
+  
+	// Function to add a new event#
+	function addEvent(addID,addTitle,addDescription,addTag1,addTag2,addTag3,addTag4,addStartDate,addEndDate) {
+	  // Create a new event object
+	  const id = addID;
+	  const title = addTitle;
+	  const description = addDescription;
+	  const tagList = [
 		addTag1,addTag2,addTag3,addTag4
-	];
-	const startDate = addStartDate;
-	const endDate = addEndDate;
+	  ];
+	  const startDate = new Date (parseInt(addStartDate));
+	  const endDate = new Date (parseInt(addEndDate));
+	  
+	  const event = new Event(id,title,description,tagList,startDate,endDate);
+  
+	  // Add the event to the array
+	  events.push(event);
+  
+	  // Save the updated array to local storage
+	  localStorage.setItem("events", JSON.stringify(events));
+	}
+  
+	function deleteEvent(index) {
+	  // Remove the event from the array
+	  events.splice(index, 1);
+  
+	  // Save the updated array to local storage
+	  localStorage.setItem("events", JSON.stringify(events));
+	}
+  
+	//Example usage:
+	// addId = 0;
+	// addTitle="test 1 using variables";
+	// addDescription ="go and get ice";
+	// addTag1=true;
+	// addTag2=false;
+	// addTag3=false;
+	// addTag4=true;
+	// addStartDate=1683897922000;
+	// addEndDate=1683897922000;
+  
+	// addEvent(addId,addTitle,addDescription,addTag1,addTag2,addTag3,addTag4,addStartDate,addEndDate);
+	// addEvent(1,'Test 2 with description','desc',true,true,false,false,1683897922000,1683897922000);
+	// addEvent(2,'Test 3 no description of ','',true,true,false,false,1683897922000,1683897922000);
 	
-	const event = new Event(title,description,tagList,startDate,endDate);
-	eventsList.push(event);
-	const csv = ("\n"+title+','+description+','+tagList+','+startDate+','+endDate);
-	fs.appendFile('events.csv', csv, (err) => {
-		if (err) console.error('Couldn\'t append the data');})
+	//deleteEvent(0,events);
+	//Retrieve the updated events from local storage
+	storedEvents = localStorage.getItem("events");
+	events = storedEvents ? JSON.parse(storedEvents) : [];
+	// console.log(events[0]);
+  	
 	
-}
+	// Display the events
+	// console.log("Event title ="+events[0].title);
+	// console.log("Event description ="+events[0].description);
+	// console.log("Event tagList ="+events[0].tagList);
+	// console.log("Event start date ="+events[0].startDate);
+	// console.log("Event end date ="+events[0].endDate);
 
-function stringToCsv(importCode){
-	fs.appendFile('events.csv', importCode, (err) => {
-		if (err) console.error('Couldn\'t append the data');})
-}
-
-// used to get the list created in from CSV 
-async function getArray(){
-	const eventsList = await fromCSV();
-	//console.log(events);
-	return eventsList;
-}
-
-// get event from specific index in the array 
-async function getEvent(input){
-	const eventsList = await getArray();
-	//console.log(eventsList[input]);
-	return eventsList[input];
-}
-
-async function main(eventsList){
-eventsList = await getArray();
-console.log(eventsList);
-
-////--------------- USE THIS TO GET ALL EVENT DATA ------------
-// let index = 0;
-// let currentEvent = await getEvent(index);
-// let currentTitle = currentEvent.getTitle;
-// let currentDesc = currentEvent.getDescription;
-// let currentTaglist = currentEvent.getTagList;
-// let currentStartdate = currentEvent.getStartDate;
-// let currentEnddate = currentEvent.getEndDate;
-
-//console.log(currentTitle,currentDesc,currentTaglist,currentStartdate,currentEnddate);
-
-//----------------- FORMAT FOR ADDING EVENT TO ARRAY AND CSV-------------
-// addTitle="dentist";
-// addDescription ="go and get dentist appointment";
-// addTag1=true;
-// addTag2=false;
-// addTag3=false;
-// addTag4=true;
-// addStartDate=1683897922000;
-// addEndDate=1683897922000;
-//addEvent(addTitle,addDescription,addTag1,addTag2,addTag3,addTag4,addStartDate,addEndDate);
-//importCode = "buy flowers,Roses,true,false,true,true,1683815641000,1683815641000"
-//stringToCsv("\n"+importCode);
-
-}
-
-
-let eventsList = []
-main(eventsList);
+  } else {
+	console.log("Local storage is not supported.");
+  }
