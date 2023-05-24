@@ -117,5 +117,3 @@ class Event {
   } else {
 	console.log("Local storage is not supported.");
   }
-  
-export { addEvent, deleteEvent };
