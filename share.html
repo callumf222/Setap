@@ -21,12 +21,15 @@
         <body>
             <button class="internalBtn" onclick="copyToClipboard()">Copy</button>
             <form>
-                <input type="text" class="pasteShare" id="pasteshare" placeholder="PasteHere">
+                <input type="text" class="pasteShare" id="pasteshare" placeholder="Paste Here">
                 <button type="button" class="internalBtn" onclick="submitting()">Submit</button>
             </form>
-
-            <script src="shareEvent.js"></script>
+            
             <script src="getAndReturnCSV.js"></script>
+            <script src="shareEvent.js">
+                //make sure this file is called AFTER getAndReturnCSV.js
+            </script> 
+            
         </body>
 
     </head>
