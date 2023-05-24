@@ -1,4 +1,3 @@
-
 class Event {
     constructor(id,title, description, tagList, startDate, endDate) {
         this.id = id
@@ -545,9 +544,8 @@ function createNextEvent() {
 }
 
 function updateNextEvent() {
-    //if nextEvent is null, create it
-    //if nextEvent is not null, remove it and create it
-    if (events === null) {
+
+    if (events.length > 0) {
 
         if (document.getElementById("nextEvent") === null) {
             createNextEvent();
