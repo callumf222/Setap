@@ -245,11 +245,11 @@ body{
 }
 
 .filterButton:active{
-    color: #DFFDFF;
+    color: #3B4CA8;
 }
 
 .filterButton:active,
 .active{
-    color: #DFFDFF;
+    color: #3B4CA8;
 }
 
