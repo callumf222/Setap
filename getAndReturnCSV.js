@@ -122,16 +122,21 @@ class Event {
 		addEvent(submitArray[0],submitArray[1],submitArray[2],submitArray[3],submitArray[4],submitArray[5],submitArray[6],submitArray[7],submitArray[8]);
 		//addEvent(addId,addTitle,addDescription,addTag1,addTag2,addTag3,addTag4,addStartDate,addEndDate);
 		//console.log(submitArray[1]);
-		console.log(events);
+		//console.log(events);
 
 		document.getElementById("pasteshare").value = "";
 	}
 	
 	function copyToClipboard(){
-		let text1 = "Dummy Copy"; //this needs to access a CSV file and return all its contents
-	
-	
-		navigator.clipboard.writeText(text1).value;
+		//console.log(events[0]);
+
+		const startDate = new Date(events[0].startDate);
+		const endDate = new Date(events[0].endDate);
+
+		const values = [events[0].id, events[0].title, events[0].description, events[0].tagList, startDate.valueOf(), endDate.valueOf()]
+		const outputStr = values.join(",");
+
+		navigator.clipboard.writeText(outputStr).value;
 	}
 
 	
