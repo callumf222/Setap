@@ -4,6 +4,17 @@ body{
     background-color: #9DAAF2;
 }
 
+.filters{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.eventNextHolder{
+    justify-content: center;
+}
 
 .eventNext {
     display: flex;
@@ -107,9 +118,8 @@ body{
 }
 
 .eventBoard__DButton {
-    position: absolute;
-    bottom: 10px;
-    right: 110px;
+    position: relative;
+    left:  300px;
     font-size: 30px;
     color: white;
     border-radius: 50%;
@@ -118,9 +128,17 @@ body{
 }
 
 .eventBoard__PButton {
-    position: absolute;
-    bottom: 10px;
-    right: 150px;
+    position: relative;
+    left:  300px;
+    font-size: 30px;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.eventBoard__AButton {
+    position: relative;
+    left:  300px;
     font-size: 30px;
     color: white;
     border-radius: 50%;

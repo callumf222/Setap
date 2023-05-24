@@ -1,3 +1,198 @@
+
+class Event {
+    constructor(id,title, description, tagList, startDate, endDate) {
+        this.id = id
+        this.title = title;
+        this.description = description;
+        this.tagList = tagList;
+        this.startDate = startDate;
+        this.endDate = endDate;
+    }
+    set changeid(newId) {this.id = newId;}
+    get getid(){return this.id;}
+
+    set changeTitle(newTitle) {this.title = newTitle;}
+    get getTitle(){return this.title;}
+
+    set changeDescription(newDescription) {this.description = newDescription;}
+    get getDescription(){return this.description;}
+
+    set changeTagList(newTaglist) {this.tagList= newTaglist;}
+    get getTagList(){return this.tagList;}
+
+    set changeStartDate(newStartDate) {this.startDate = newStartDate;}
+    get getStartDate(){return this.startDate;}
+
+    set changeEndDate(newEndDate) {this.endDate = newEndDate;}
+    get getEndDate(){return this.endDate;}
+
+}
+
+function convertTimestamp(timestamp) {
+    var d = new Date(timestamp), // Convert the passed timestamp to milliseconds
+        yyyy = d.getFullYear(),
+        mm = ('0' + (d.getMonth() + 1)).slice(-2),  // Months are zero based. Add leading 0.
+        dd = ('0' + d.getDate()).slice(-2),         // Add leading 0.
+        hh = d.getHours(),
+        h = hh,
+        min = ('0' + d.getMinutes()).slice(-2),     // Add leading 0.
+        ampm = 'AM',
+        time;
+
+    if (hh > 12) {
+        h = hh - 12;
+        ampm = 'PM';
+    } else if (hh === 12) {
+        h = 12;
+        ampm = 'PM';
+    } else if (hh == 0) {
+        h = 12;
+    }
+
+    // ie: 2014-03-24, 3:00 PM
+    time = yyyy + '-' + mm + '-' + dd;
+    return time;
+}
+
+function convertTagList(tagList) {
+    let result = "";
+    
+    if (tagList[0]) {
+      result += "Work ";
+    }
+    
+    if (tagList[1]) {
+      result += "Social ";
+    }
+    
+    if (tagList[2]) {
+      result += "Chores ";
+    }
+    
+    if (tagList[3]) {
+      result += "Reminders";
+    }
+    
+    return result.trim();
+  }
+  
+
+function createEventBoard(id,title, description, tagList, startDate, endDate) {
+
+    const eventBoardItem = document.createElement("button");
+    eventBoardItem.className = "eventBoard__Item";
+
+    eventBoardItem.setAttribute("id", id);
+    eventBoardItem.setAttribute("onclick", "eventClick(this)");
+
+    const itemContent = document.createTextNode(`Title: ${title} | Description: ${description} | Tags: ${convertTagList(tagList)} | StartDate: ${convertTimestamp(startDate)} | EndDate: ${convertTimestamp(endDate)}`);
+
+    eventBoardItem.appendChild(itemContent);
+
+    const EventBoard = document.getElementById("AllBoard");
+    EventBoard.querySelector(".eventBoard__Item_List").appendChild(eventBoardItem);
+}
+
+
+if (typeof(Storage) !== "undefined") {
+    // Retrieve the events from local storage
+    let storedEvents = localStorage.getItem("events");
+
+    // Check if there are previously stored events
+    var events = storedEvents ? JSON.parse(storedEvents) : [];
+
+    // Function to add a new event#
+    function addEventArray(addID,addTitle,addDescription,addTagsList,addStartDate,addEndDate) {
+        // Create a new event object
+        const id = addID;
+        const title = addTitle;
+        const description = addDescription;
+        const tagList = addTagsList;
+        const startDate = new Date (parseInt(addStartDate));
+        const endDate = new Date (parseInt(addEndDate));
+
+        const event = new Event(id,title,description,tagList,startDate,endDate);
+
+        // Add the event to the array
+        events.push(event);
+
+        // Save the updated array to local storage
+        localStorage.setItem("events", JSON.stringify(events));
+
+        console.log(events[events.length - 1]);
+    }
+
+    function deleteEvent() {
+        // Remove the event from the array
+
+
+        events.splice(selectedEvent.id, 1);
+
+        events.forEach((event, newIndex) => {
+
+            //change id of the event in html
+            let eventHtml = document.getElementById(String(event.id));
+
+            eventHtml.id = String(newIndex);
+
+            event.id = newIndex;
+        })
+
+
+        let eventHtml = document.getElementById(selectedEvent.id);
+
+        eventHtml.remove();
+
+
+
+        // Save the updated array to local storage
+        localStorage.setItem("events", JSON.stringify(events));
+
+
+
+        updateNextEvent();
+    }
+
+    // Example usage:
+    addId = 0;
+    addTitle="add this";
+    addDescription ="go and get ice";
+    addTag1=true;
+    addTag2=false;
+    addTag3=false;
+    addTag4=true;
+    addStartDate=1683897922000;
+    addEndDate=1683897922000;
+
+    //addEventArray(addId,addTitle,addDescription,addTag1,addTag2,addTag3,addTag4,addStartDate,addEndDate);
+    //deleteEvent(0,events);
+    //addEventArray('Test','desc',true,true,false,false,1683897922000,1683897922000);
+
+    //Retrieve the updated events from local storage
+    storedEvents = localStorage.getItem("events");
+    events = storedEvents ? JSON.parse(storedEvents) : [];
+
+
+    //currentEvent = events.find(item=> item.id === 0)
+    // Display the events
+    //console.log(events[0].title);
+    console.log("loaded " + events.length + " events");
+    console.log(events);
+    updateNextEvent();
+
+    //-------------------------LOAD EVENTS --------------------------------
+
+    for (let i = 0; i < events.length; i++) {
+        createEventBoard(events[i].id,events[i].title,events[i].description,events[i].tagList,events[i].startDate,events[i].endDate);
+    }
+
+} else {
+    console.log("Local storage is not supported.");
+}
+
+
+// -------------------------CREATE POPUP--------------------------------
+
 // Get the modal
 var modal = document.getElementById("myModal");
 
@@ -5,7 +200,7 @@ var modal = document.getElementById("myModal");
 var AddItemBtn = document.getElementById("AddItemBtn");
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+var span = document.getElementById("Span1");
 
 var selectedEvent = null;
 
@@ -67,7 +262,7 @@ function saveTextarea() {
     return String(textarea)
 }
 
-function saveChecklist() {
+function saveTagslist() {
     var option1 = document.getElementById("option1").checked;
     var option2 = document.getElementById("option2").checked;
     var option3 = document.getElementById("option3").checked;
@@ -78,52 +273,343 @@ function saveChecklist() {
 
 //use this function to create event on page using data
 function saveAll(){
-    var eventValue = [saveTitle(), saveTextarea(),saveChecklist(),saveDate(),saveEndDate()]
+
+
+
+    let id = events.length;
+
+    var eventValue = [id, saveTitle(), saveTextarea(),saveTagslist(),saveDate(),saveEndDate()]
     
-    //console.log(eventValue)
-
-    // Create a new event board item with the collected data
-    const eventBoardItem = document.createElement("div");
-    eventBoardItem.className = "eventBoard__Item"; //MAYBE USE .classList.add() instead
-    eventBoardItem.setAttribute("onclick", "eventClick(this)");
+    createEventBoard(id, saveTitle(), saveTextarea(),saveTagslist(),saveDate(),saveEndDate())
 
 
-    const itemContent = document.createTextNode(`${eventValue[0]} ${eventValue[1]} ${eventValue[2]} ${eventValue[3]} ${eventValue[4]}`);
-
-    eventBoardItem.appendChild(itemContent);
-
-    const EventBoard = document.getElementById("AllBoard");
-    EventBoard.querySelector(".eventBoard__Item_List").appendChild(eventBoardItem);
+    addEventArray(eventValue[0],eventValue[1],eventValue[2],eventValue[3],eventValue[4],eventValue[5])
 
     modal.style.display = "none";
+
+    updateNextEvent();
+
+
+    ;
+}
+
+//-------------------------EDIT POPUP--------------------------------
+
+// Get the modal
+const editModal = document.getElementById("editModal");
+
+// Get the <span> element that closes the modal
+const editSpan = document.getElementById("editSpan");
+
+const editEvent = null;
+
+function eventClick(eventBoardItem) {
+
+
+
+
+    let editModal = document.getElementById("editModal");
+    editModal.style.display = "block";
+
+    selectedEvent = events[eventBoardItem.id];
+
+    //put values into edit modal
+
+
+
+    let editTitle = document.getElementById("edit-title");
+    if (selectedEvent.title) {
+        editTitle.value = selectedEvent.title;
+    } else {
+        editTitle.value = "";
+    }
+
+    let editTextarea = document.getElementById("edit-textarea");
+    if (selectedEvent.description) {
+        editTextarea.value = selectedEvent.description;
+    } else {
+        editTextarea.value = "";
+    }
+
+    let editOption1 = document.getElementById("edit-option1");
+    if (selectedEvent.tagList && selectedEvent.tagList[0]) {
+        editOption1.checked = selectedEvent.tagList[0];
+    } else {
+        editOption1.checked = false;
+    }
+
+    let editOption2 = document.getElementById("edit-option2");
+    if (selectedEvent.tagList && selectedEvent.tagList[1]) {
+        editOption2.checked = selectedEvent.tagList[1];
+    } else {
+        editOption2.checked = false;
+    }
+
+    let editOption3 = document.getElementById("edit-option3");
+    if (selectedEvent.tagList && selectedEvent.tagList[2]) {
+        editOption3.checked = selectedEvent.tagList[2];
+    } else {
+        editOption3.checked = false;
+    }
+
+    let editOption4 = document.getElementById("edit-option4");
+    if (selectedEvent.tagList && selectedEvent.tagList[3]) {
+        editOption4.checked = selectedEvent.tagList[3];
+    } else {
+        editOption4.checked = false;
+    }
+
+    let editDateSelecter = document.getElementById("edit-dateSelecter");
+    if (selectedEvent.startDate) {
+
+        let startDate = new Date(selectedEvent.startDate);
+
+
+        let day = ("0" + startDate.getDate()).slice(-2);
+        let month = ("0" + (startDate.getMonth() + 1)).slice(-2);
+
+        let startDateFormat = startDate.getFullYear()+"-"+(month)+"-"+(day) ;
+
+
+        editDateSelecter.value = startDateFormat;
+    } else {
+        editDateSelecter.value = "";
+    }
+
+    let editEndDateSelecter = document.getElementById("edit-endDateSelecter");
+    if (selectedEvent.endDate) {
+
+        let endDate = new Date(selectedEvent.endDate);
+
+
+        let day = ("0" + endDate.getDate()).slice(-2);
+        let month = ("0" + (endDate.getMonth() + 1)).slice(-2);
+
+        let endDateFormat = endDate.getFullYear()+"-"+(month)+"-"+(day) ;
+
+
+        editEndDateSelecter.value = endDateFormat;
+    } else {
+        editEndDateSelecter.value = "";
+    }
+
+
+
+}
+
+// When the user clicks on <span> (x), close the modal
+editSpan.onclick = function() {
+    editModal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the editModal, close it
+window.onclick = function(event) {
+    if (event.target == editModal) {
+        editModal.style.display = "none";
+    }
 }
 
 
 
 
-function eventDel() {
-    selectedEvent.remove();
-    const EventBoard = document.getElementById("DelBoard");
-    EventBoard.querySelector(".eventBoard__Item_List").appendChild(selectedEvent);
+
+
+
+
+
+// Get the date input element
+const editDateInput = document.getElementById("edit-dateSelecter");
+
+// Get the value of the date input element and save it as a variable
+const editSelectedDate = editDateInput.value;
+
+// Log the selected date to the console
+
+
+function editSaveDate() {
+    // Get the date input element
+    const editDateInput = document.getElementById("edit-dateSelecter");
+
+    // Get the value of the date input element and save it as a variable
+    const editSelectedDate = editDateInput.value;
+
+    return  Date.parse(editSelectedDate)
+
+}
+
+function editSaveEndDate() {
+    // Get the date input element
+    const editDateInput = document.getElementById("endDateSelecter");
+
+    // Get the value of the date input element and save it as a variable
+    const selectedEndDate = editDateInput.value;
+
+    return Date.parse(selectedEndDate)
+}
+
+function editSaveTitle() {
+    let title = document.getElementById("edit-title").value;
+    return String(title)
+}
+
+function editSaveTextarea() {
+    let textarea = document.getElementById("edit-textarea").value;
+    return String(textarea)
+}
+
+function editSaveTagslist() {
+    let option1 = document.getElementById("edit-option1").checked;
+    let option2 = document.getElementById("edit-option2").checked;
+    let option3 = document.getElementById("edit-option3").checked;
+    let option4 = document.getElementById("edit-option4").checked;
+
+    return [option1,option2,option3,option4]
+}
+
+//use this function to create event on page using data
+function saveEdit(){
+
+    console.log("before saveedit" + events[0].id+ " " + events[0].title + " " + events[1].id+ " " + events[1].title);
+
+    let id = events.length;
+
+    deleteEvent(selectedEvent.id)
+
+
+    let eventValue = [id, editSaveTitle(), editSaveTextarea(),editSaveTagslist(),editSaveDate(),editSaveEndDate()]
+
+    createEventBoard(id, editSaveTitle(), editSaveTextarea(),editSaveTagslist(),editSaveDate(),editSaveEndDate())
+
+
+    addEventArray(eventValue[0],eventValue[1],eventValue[2],eventValue[3],eventValue[4],eventValue[5])
+
+    editModal.style.display = "none";
+
+    updateNextEvent();
+
+    console.log("after saveedit" + events[0].id+ " " + events[0].title + " " + events[1].id+ " " + events[1].title);
+
+}
+
+
+
+// function eventClick(eventBoardItem) {
+//     if (selectedEvent === eventBoardItem) {
+//         selectedEvent.style.backgroundColor = "white";
+//         selectedEvent = null;
+//     } else if (selectedEvent !== null) {
+//         selectedEvent.style.backgroundColor = "white";
+//         selectedEvent = eventBoardItem;
+//         selectedEvent.style.backgroundColor = "#3b4ca8";
+//     } else {
+//         selectedEvent = eventBoardItem;
+//         selectedEvent.style.backgroundColor = "#3b4ca8";
+//     }
+// }
+var closestEvent = null;
+
+
+function createNextEvent() {
+    let nextEvent = document.createElement("div");
+    nextEvent.className = "eventBoard__Item";
+    nextEvent.id = "nextEvent";
+
+    // search through events for the next event
+
+    const now = new Date();
+
+    let closestDate = null;
+    let minDifference = Infinity;
+
+    events.forEach(event => {
+        let eventDate = new Date(event.startDate);
+        let difference = eventDate - now;
+
+        if (difference < minDifference) {
+            minDifference = difference;
+            closestDate = eventDate;
+            closestEvent = event;
+
+        }
+    })
+    const itemContent = document.createTextNode(`Title: ${closestEvent.title} | Description: ${closestEvent.description} | Tags: ${convertTagList(closestEvent.tagList)} | StartDate: ${convertTimestamp(closestEvent.startDate)} | EndDate: ${convertTimestamp(closestEvent.endDate)}`);
+
+
+    nextEvent.appendChild(itemContent);
+
+    const EventBoard = document.getElementById("nextBoard");
+    EventBoard.querySelector(".eventNext__Item-input").appendChild(nextEvent);
+
+}
+
+function updateNextEvent() {
+    //if nextEvent is null, create it
+    //if nextEvent is not null, remove it and create it
+
+    if (document.getElementById("nextEvent") === null) {
+        createNextEvent();
+
+
+    } else {
+        document.getElementById("nextEvent").remove();
+        createNextEvent();
+
+
+    }
+
+}
+
+
+function eventArch() {
+
+    let eventBoardItem = document.getElementById(selectedEvent.id);
+
+    eventBoardItem.remove();
+    const EventBoard = document.getElementById("ArchiveBoard");
+    EventBoard.querySelector(".eventBoard__Item_List").appendChild(eventBoardItem);
 }
 
 
 function eventPin() {
-    selectedEvent.remove();
+
+    //maybe just update the tag which gets checked on saveedit
+
+    let eventBoardItem = document.getElementById(selectedEvent.id);
+
+    eventBoardItem.remove();
     const EventBoard = document.getElementById("PinBoard");
-    EventBoard.querySelector(".eventBoard__Item_List").appendChild(selectedEvent);
+    EventBoard.querySelector(".eventBoard__Item_List").appendChild(eventBoardItem);
 }
 
-function eventClick(eventBoardItem) {
-    if (selectedEvent === eventBoardItem) {
-        selectedEvent.style.backgroundColor = "white";
-        selectedEvent = null;
-    } else if (selectedEvent !== null) {
-        selectedEvent.style.backgroundColor = "white";
-        selectedEvent = eventBoardItem;
-        selectedEvent.style.backgroundColor = "3b4ca8";
-    } else {
-        selectedEvent = eventBoardItem;
-        selectedEvent.style.backgroundColor = "#3b4ca8";
-    }
+// Get the modal
+const delModal = document.getElementById("delModal");
+
+// Get the <span> element that closes the modal
+const delSpan = document.getElementById("delSpan");
+function delConfirm() {
+
+    let delModal = document.getElementById("delModal");
+    delModal.style.display = "block";
+
+}
+
+delSpan.onclick = function() {
+    delModal.style.display = "none";
+}
+
+// When the user clicks anywhere
+window.onclick = function(event) {
+    if (event.target == delModal) {
+        delModal.style.display = "none";
+}
+}
+
+function deleteYes() {
+    delModal.style.display = "none";
+    editModal.style.display = "none";
+    deleteEvent();
+}
+
+function deleteNo() {
+    delModal.style.display = "none";
 }

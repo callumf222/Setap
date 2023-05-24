@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +9,7 @@
     <link rel="stylesheet" href="sidebar.css">
 
     <script src="HomePage.js" defer></script>
-    <script src="getAndReturnCSV.js" defer></script>
+
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
 
@@ -68,9 +69,10 @@
 
 
     
+<div class="eventNextHolder" id="nextBoard">
     <div class="eventNext">
         <div class="eventNext__Title">Next event</div>
-        <div class="eventNext__Item-input">This will be the next event</div>
+        <div class="eventNext__Item-input"></div>
     </div>
 
 <div class="kanban">
@@ -98,7 +100,7 @@
         
     </div>
 
-    <div class="eventBoard" id="DelBoard">
+    <div class="eventBoard" id="ArchiveBoard">
         <div class="eventBoard__Title">Archived</div>
         <div class="eventBoard__Item_List">
             <div class="eventBoard__Dropzone">
@@ -111,26 +113,17 @@
     </div>
 
 
-    <!--              Ben D, Add these two buttons into the edit popup, they have icons and whatnot                  -->
-    <div class="eventBoard__PButton">
-        <i class="fas fa-thumbtack" onclick="eventPin()"></i>
-    </div>
-
-    <div class="eventBoard__DButton">
-        <i class="fas fa-trash" onclick="eventDel()"></i>
-    </div>
-
-    <button id="AddItemBtn" class="AddItem">+</button>
 
 </div>
 
+    <button id="AddItemBtn" class="AddItem">+</button>
 
 <!-- Modal button -->
 <div id="myModal" class="modal">
 
     <!-- Modal content -->
     <div class="modal-content">
-        <span class="close">&times;</span>
+        <span id="Span1" class="close">&times;</span>
         <p><!-- Event Making code and buttons go here --></p>
         <label for="title">Event Title:</label><br>
         <input type="text" id="title" name="title" class="title"><br><br>
@@ -158,31 +151,77 @@
 
 
 <!-- Modal content for edit -->
-<!--<div class="modal-content">
-    <span class="close">&times;</span>
-    <p> Event Making code and buttons go here </p>
-    <label for="title">Event Title:</label><br>
-    <input type="text" id="edit-title" name="title" class="title"><br><br>
+<div id="editModal" class="modal">
+    <div class="modal-content">
+        <h1>Edit Event</h1>
+        <span id="editSpan" class="close">&times;</span>
+        <label for="edit-title">Event Title:</label><br>
+        <input type="text" id="edit-title" name="title" class="title"><br><br>
 
-    <label for="textarea">Description:</label><br>
-    <textarea id="edit-textarea" name="textarea" class="description"></textarea><br><br>
+        <label for="edit-textarea">Description:</label><br>
+        <textarea id="edit-textarea" name="textarea" class="description"></textarea><br><br>
 
-    <label>Tags:</label><br>
-    <input type="checkbox" id="edit-option1" name="option1" value="Option 1">
-    <label for="option1">Work</label><br>
-    <input type="checkbox" id="edit-option2" name="option2" value="Option 2">
-    <label for="option2">Social</label><br>
-    <input type="checkbox" id="edit-option3" name="option3" value="Option 3">
-    <label for="option3">Chores</label><br>
-    <input type="checkbox" id="edit-option4" name="option4" value="Option 4">
-    <label for="option4">Reminder</label><br><br>
-    <label for="dateName">Start Date: </label><br>
-    <input type="date" name="" id="edit-dateSelecter"><br><br>
-    <label for="endDateName">End Date: </label><br>
-    <input type="date" name="" id="edit-endDateSelecter"><br><br>
-    <button onclick="saveAll()">Save All</button>
+        <label>Tags:</label><br>
+        <input type="checkbox" id="edit-option1" name="option1" value="Option 1">
+        <label for="edit-option1">Work</label><br>
+        <input type="checkbox" id="edit-option2" name="option2" value="Option 2">
+        <label for="edit-option2">Social</label><br>
+        <input type="checkbox" id="edit-option3" name="option3" value="Option 3">
+        <label for="edit-option3">Chores</label><br>
+        <input type="checkbox" id="edit-option4" name="option4" value="Option 4">
+        <label for="edit-option4">Reminder</label><br><br>
+        <label for="edit-dateSelecter">Start Date: </label><br>
+        <input type="date" name="" id="edit-dateSelecter"><br><br>
+        <label for="edit-endDateSelecter">End Date: </label><br>
+        <input type="date" name="" id="edit-endDateSelecter"><br><br>
+        <button onclick="saveEdit()">Save All</button>
+        <div class="eventBoard__AButton">
+            <i class="fas fa-archive" onclick="eventArch()"> Archive</i>
+        </div>
+        <div class="eventBoard__PButton">
+            <i class="fas fa-thumbtack" onclick="eventPin()"> Pin</i>
+        </div>
 
-</div> -->
+        <div class="eventBoard__DButton">
+
+            <i class="fas fa-trash" onclick="delConfirm()"> Delete</i>
+        </div>
+
+
+    </div>
+</div>
+
+<div id="delModal" class="modal">
+    <div class="modal-content">
+        <h1>Delete Event?</h1>
+        <span id="delSpan" class="close">&times;</span>
+        <p>Are you sure you want to delete this event?</p>
+
+        <button onclick="deleteYes()">Yes</button>
+        <button onclick="deleteNo()">No</button>
+
+
+    </div>
+</div>
+
+<div class="filters">
+<div class="eventBoard__WorkButton">
+    <i class="fas fa-briefcase" onclick="filterWork()"> Work</i>
+</div>
+<div class="eventBoard__SocialButton">
+    <i class="fas fa-users" onclick="filterSocial()"> Social</i>
+</div>
+
+<div class="eventBoard__ChoresButton">
+
+    <i class="fas fa-home" onclick="filterChores()"> Chores</i>
+</div>
+
+    <div class="eventBoard__ReminderButton">
+
+        <i class="fas fa-bell" onclick="filterReminder()"> Reminders</i>
+    </div>
+</div>
 
 
 </body>

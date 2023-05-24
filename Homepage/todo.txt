@@ -1,19 +1,25 @@
-implement loading and saving:
+diagnose undefined issue
+possible solutions:
 
-FIGURE OUT COMPLEXITY OF GETTING NODE.JS TO WORK IN BROWSER
-but if we want to run in browser we need to use localStorage instead of fs
-nodejs doesnt work on browsers, maybe theres a way around that
-the other option is using browser localStorage, which would need stringifying and parsing
-see "convert nodejs Code" in chatgpt
+make id constant, never change it, always increasing it
 
+maybe its to do with not parsing events as objects at some point so they become undefined
 
+only effects edited events
 
+when page reloads, the date objects change to 1970??
 
-figure out better way to display
-change delete to archive
+-------------------------------------------------------------
+edit popup stuff
+
+add edit title to edit popup
+move buttons to edit popup
 add tags for pin and archived instead
 
+add popup for delete
+-------------------------------------------------------------
 
-add an edit popup:
-find a way to set default values in all the fields
-maybe can run script that sets default values in all the fields by finding "edit-title"
+
+
+
+
