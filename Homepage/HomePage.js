@@ -91,6 +91,8 @@ function createEventBoard(id,title, description, tagList, startDate, endDate) {
 
     const EventBoard = document.getElementById("AllBoard");
     EventBoard.querySelector(".eventBoard__Item_List").appendChild(eventBoardItem);
+
+
 }
 
 
@@ -612,4 +614,114 @@ function deleteYes() {
 
 function deleteNo() {
     delModal.style.display = "none";
+}
+
+var filterWorkOn = false;
+function filterWork() {
+    if (filterWorkOn === false) {
+
+        events.forEach(event => {
+            let eventBoardItem = document.getElementById(event.id);
+
+            if (event.tagList[0] === false) {
+                eventBoardItem.style.display = "none";
+            } else {
+                eventBoardItem.style.display = "block";
+            }
+        })
+        filterWorkOn = true;
+
+    } else {
+        events.forEach(event => {
+            let eventBoardItem = document.getElementById(event.id);
+
+            if (event.tagList[0] === false) {
+                eventBoardItem.style.display = "block";
+            }
+        })
+        filterWorkOn = false;
+    }
+}
+
+var filterSocialOn = false;
+function filterSocial() {
+    if (filterSocialOn === false) {
+
+        events.forEach(event => {
+            let eventBoardItem = document.getElementById(event.id);
+
+            if (event.tagList[1] === false) {
+                eventBoardItem.style.display = "none";
+            } else {
+                eventBoardItem.style.display = "block";
+            }
+        })
+        filterSocialOn = true;
+
+    } else {
+        events.forEach(event => {
+            let eventBoardItem = document.getElementById(event.id);
+
+            if (event.tagList[1] === false) {
+                eventBoardItem.style.display = "block";
+            }
+        })
+        filterSocialOn = false;
+    }
+
+}
+
+var filterChoresOn = false;
+function filterChores() {
+    if (filterChoresOn === false) {
+
+        events.forEach(event => {
+            let eventBoardItem = document.getElementById(event.id);
+
+            if (event.tagList[2] === false) {
+                eventBoardItem.style.display = "none";
+            } else {
+                eventBoardItem.style.display = "block";
+            }
+        })
+        filterChoresOn = true;
+
+    } else {
+        events.forEach(event => {
+            let eventBoardItem = document.getElementById(event.id);
+
+            if (event.tagList[2] === false) {
+                eventBoardItem.style.display = "block";
+            }
+        })
+        filterChoresOn = false;
+    }
+
+}
+
+var filterReminderOn = false;
+function filterReminder() {
+    if (filterReminderOn === false) {
+
+        events.forEach(event => {
+            let eventBoardItem = document.getElementById(event.id);
+
+            if (event.tagList[3] === false) {
+                eventBoardItem.style.display = "none";
+            } else {
+                eventBoardItem.style.display = "block";
+            }
+        })
+        filterReminderOn = true;
+
+    } else {
+        events.forEach(event => {
+            let eventBoardItem = document.getElementById(event.id);
+
+            if (event.tagList[3] === false) {
+                eventBoardItem.style.display = "block";
+            }
+        })
+        filterReminderOn = false;
+    }
 }
