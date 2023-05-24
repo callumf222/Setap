@@ -78,6 +78,12 @@ function convertTagList(tagList) {
 
 function createEventBoard(id,title, description, tagList, startDate, endDate) {
 
+    if (startDate == null) {
+        startDate = new Date();
+    }
+    if (endDate == null) {
+        endDate = new Date();
+    }
     const eventBoardItem = document.createElement("button");
     eventBoardItem.className = "eventBoard__Item";
 
@@ -238,9 +244,11 @@ function saveDate() {
 
     // Get the value of the date input element and save it as a variable
     const selectedDate = dateInput.value;
+    if (Date.parse(selectedDate) < Date.now() || selectedDate == "") {
+        return Date.now()
+    }
 
     return  Date.parse(selectedDate)
-
 }
 
 function saveEndDate() {
@@ -249,6 +257,10 @@ function saveEndDate() {
 
     // Get the value of the date input element and save it as a variable
     const selectedEndDate = dateInput.value;
+
+    if (Date.parse(selectedEndDate) < Date.now() || selectedEndDate == "") {
+        return Date.now()
+    }
 
     return Date.parse(selectedEndDate)
 }
@@ -276,7 +288,6 @@ function saveTagslist() {
 function saveAll(){
 
 
-
     let id = events.length;
 
     var eventValue = [id, saveTitle(), saveTextarea(),saveTagslist(),saveDate(),saveEndDate()]
@@ -291,7 +302,7 @@ function saveAll(){
 
     updateNextEvent();
 
-    ;
+
 }
 
 //-------------------------EDIT POPUP--------------------------------
@@ -533,6 +544,7 @@ function createNextEvent() {
 
         }
     })
+
     const itemContent = document.createTextNode(`Title: ${closestEvent.title} | Description: ${closestEvent.description} | Tags: ${convertTagList(closestEvent.tagList)} | StartDate: ${convertTimestamp(closestEvent.startDate)} | EndDate: ${convertTimestamp(closestEvent.endDate)}`);
 
 
