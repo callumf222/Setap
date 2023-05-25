@@ -118,22 +118,14 @@ class Event {
 	function submitting() {
 		var userInput = document.getElementById("pasteshare").value;
 		const submitArray = userInput.split(",");
-
-        let idArray = [];
-        //loop through events
-        events.foreach((event) => {
-            //add id to array
-            idArray.push(event.id);
-        }
-        const maxId = Math.max(...idArray);
-        //use maxid +1 +2 etc for clean ids
-
-		addEvent(submitArray[0],submitArray[1],submitArray[2],submitArray[3],submitArray[4],submitArray[5],submitArray[6],submitArray[7],submitArray[8]);
 		//addEvent(addId,addTitle,addDescription,addTag1,addTag2,addTag3,addTag4,addStartDate,addEndDate);
-		//console.log(submitArray[1]);
+		addEvent(events.length,submitArray[0],submitArray[1],submitArray[2],submitArray[3],submitArray[4],submitArray[5],submitArray[6],submitArray[7]);
 		//console.log(events);
 
 		document.getElementById("pasteshare").value = "";
+
+		// Save the updated array to local storage
+		localStorage.setItem("events", JSON.stringify(events));
 	}
 	
 	function copyToClipboard(){
@@ -142,7 +134,7 @@ class Event {
 		const startDate = new Date(events[0].startDate);
 		const endDate = new Date(events[0].endDate);
 
-		const values = [events[0].id, events[0].title, events[0].description, events[0].tagList, startDate.valueOf(), endDate.valueOf()]
+		const values = [events[0].title, events[0].description, events[0].tagList, startDate.valueOf(), endDate.valueOf()]
 		const outputStr = values.join(",");
 
 		navigator.clipboard.writeText(outputStr).value;
