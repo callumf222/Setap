@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>share feature</title>
+        <style>
+        .internalBtn{
+            border-radius: 20px;
+            width: 100px;
+            background-color: blueviolet;
+            padding: 10px;
+        }
+
+        .pasteShare{
+            text-align: center;
+            width: 200px;
+            padding: 10px;
+            display: inline-block;
+        }
+        </style>
+
+        <body>
+            <button class="internalBtn" onclick="copyToClipboard()">Copy</button>
+            <form>
+                <input type="text" class="pasteShare" id="pasteshare" placeholder="Paste Here">
+                <button type="button" class="internalBtn" onclick="submitting()">Submit</button>
+            </form>
+            <p class="feedback" id="feedback">hello</p>
+
+            <script src="getAndReturnCSV.js"></script>
+            
+        </body>
+
+    </head>
+</html>

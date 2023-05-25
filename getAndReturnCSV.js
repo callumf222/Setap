@@ -112,6 +112,48 @@ class Event {
 	// console.log("Event tagList ="+events[0].tagList);
 	// console.log("Event start date ="+events[0].startDate);
 	// console.log("Event end date ="+events[0].endDate);
+
+
+	function submitting() {
+		var userInput = document.getElementById("pasteshare").value;
+		const submitArray = userInput.split(",");
+		if (submitArray.length != 8) {
+			document.getElementById("feedback").innerText = "Invalid import string";
+			return;
+		}
+		
+		//addEvent(addId,addTitle,addDescription,addTag1,addTag2,addTag3,addTag4,addStartDate,addEndDate);
+		addEvent(correctId(),submitArray[0],submitArray[1],submitArray[2],submitArray[3],submitArray[4],submitArray[5],submitArray[6],submitArray[7]);
+		console.log(events);
+
+		document.getElementById("pasteshare").value = "";
+		document.getElementById("feedback").innerText = "Event imported";
+		// Save the updated array to local storage
+		localStorage.setItem("events", JSON.stringify(events));
+	}
+
+	let idArray = [];
+	function correctId() {
+		events.forEach((i) => {
+			idArray.push(i.id);
+		})
+		const maxId = Math.max(...idArray);
+		console.log(maxId);
+		return maxId+1;
+	}
+
+	function copyToClipboard(){
+		//console.log(events[0]);
+
+		const startDate = new Date(events[0].startDate);
+		const endDate = new Date(events[0].endDate);
+
+		const values = [events[0].title, events[0].description, events[0].tagList, startDate.valueOf(), endDate.valueOf()]
+		const outputStr = values.join(",");
+
+		navigator.clipboard.writeText(outputStr).value;
+	}
+
 	
   } else {
 	console.log("Local storage is not supported.");
