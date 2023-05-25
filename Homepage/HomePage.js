@@ -192,6 +192,56 @@ if (typeof(Storage) !== "undefined") {
     console.log(events);
     updateNextEvent();
 
+    function submitting() {
+        var userInput = document.getElementById("pasteshare").value;
+        const submitArray = userInput.split(",");
+        const tagsList = [submitArray[2],submitArray[3],submitArray[4],submitArray[5]];
+        if (submitArray.length != 8) {
+            document.getElementById("feedback").innerText = "Invalid import string";
+            return;
+        }
+
+        let id = correctId();
+
+        console.log(submitArray[6]);
+        console.log(submitArray[7]);
+
+        //addEvent(addId,addTitle,addDescription,addStartDate,addEndDate);
+        addEventArray(id,submitArray[0],submitArray[1],submitArray[2],tagsList,submitArray[6],submitArray[7]);
+
+
+
+        document.getElementById("pasteshare").value = "";
+        document.getElementById("feedback").innerText = "Event imported";
+        // Save the updated array to local storage
+        localStorage.setItem("events", JSON.stringify(events));
+        createEventBoard(id,submitArray[0],submitArray[1],submitArray[2],tagsList,submitArray[6],submitArray[7]);
+    }
+    console.log(events);
+    let idArray = [];
+    function correctId() {
+        events.forEach((i) => {
+            idArray.push(i.id);
+        })
+        const maxId = Math.max(...idArray);
+        //console.log(maxId);
+        return maxId+1;
+    }
+    function copyToClipboard(index) {
+        //console.log(events[0]);
+
+
+        const startDate = new Date(selectedEvent.startDate);
+        const endDate = new Date(selectedEvent.endDate);
+
+        const values = [selectedEvent.title, selectedEvent.description, selectedEvent.tagList, startDate.valueOf(), endDate.valueOf()]
+
+        const outputStr = values.join(",");
+
+        navigator.clipboard.writeText(outputStr).value;
+
+    }
+
     //-------------------------LOAD EVENTS --------------------------------
 
     for (let i = 0; i < events.length; i++) {

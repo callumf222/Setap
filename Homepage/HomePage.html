@@ -145,6 +145,14 @@
         <label for="endDateName">End Date: </label><br>
         <input type="date" name="" id="endDateSelecter"><br><br>
         <button onclick="saveAll()">Save All</button>
+
+        <p class="feedback" id="feedback">Paste an event code here</p>
+        <form>
+            <input type="text" class="pasteShare" id="pasteshare" placeholder="Paste Here">
+            <button type="button" class="internalBtn" onclick="submitting()">Submit</button>
+        </form>
+
+
     </div>
 
 </div>
@@ -186,6 +194,8 @@
 
             <i class="fas fa-trash" onclick="delConfirm()"> Delete</i>
         </div>
+        <p>Export event to clipboard</p>
+        <button class="internalBtn" onclick="copyToClipboard(1)">Copy</button>
 
 
     </div>
