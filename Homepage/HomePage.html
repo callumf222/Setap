@@ -21,216 +21,243 @@
 
     <div class="main_box">
         <input type="checkbox" id="check">
-    
+
         <div class="btnOpen">
-          <label for="check">
-            <i class="fas fa-bars"></i>
-          </label>
+            <label for="check">
+                <i class="fas fa-bars"></i>
+            </label>
         </div>
-    
+
         <div class="sidebar_menu">
-          
-          <div class="logo">
-            <a href="#">Scheduling App</a>
-          </div>
-    
+
+            <div class="logo">
+                <a href="#">Scheduling App</a>
+            </div>
+
             <div class="btnClose">
-              <label for="check">
-                <i class="fas fa-times"></i>
-              </label>
+                <label for="check">
+                    <i class="fas fa-times"></i>
+                </label>
             </div>
-            
-          <div class="menu">
-            <ul>
-    
-              <li><i class="fas fa-qrcode"></i>
-                <a href="#">Home</a>
-              </li>
-    
-              <li>
-                <i class="fas fa-link"></i>
-                <a href="#">Shortcuts</a>
-              </li>
-    
-              <li>
-                <i class="fas fa-calendar-week"></i>
-                <a href="#">Calendar</a>
-              </li>
-    
-              <li>
-                <i class="fas fa-question"></i>
-                <a href="#">Help</a>
-              </li>
-            </ul>
-          </div>
-          
-        </div>
-      </div>
 
+            <div class="menu">
+                <ul>
 
-    
-<div class="eventNextHolder" id="nextBoard">
-    <div class="eventNext">
-        <div class="eventNext__Title">Next event</div>
-        <div class="eventNext__Item-input"></div>
-    </div>
+                    <li>
+                        <i class="fas fa-qrcode"></i>
+                        <a href="#">Home</a>
+                    </li>
 
-<div class="kanban">
-    <div class="eventBoard" id="PinBoard">
-        <div class="eventBoard__Title">Pinned / Important</div>
-        <div class="eventBoard__Item_List">
-            <div class="eventBoard__Dropzone">
+                    <li>
+                        <i class="fas fa-link"></i>
+                        <a href="#">Shortcuts</a>
+                    </li>
 
+                    <li>
+                        <i class="fas fa-calendar-week"></i>
+                        <a href="#">Calendar</a>
+                    </li>
 
+                    <li>
+                        <i class="fas fa-question"></i>
+                        <a href="#">Help</a>
+                    </li>
+                </ul>
             </div>
-        </div>
-      
 
-    </div>
-
-    <div class="eventBoard" id="AllBoard">
-        <div class="eventBoard__Title">All Events</div>
-        <div class="eventBoard__Item_List">
-            <div class="eventBoard__Dropzone">
-
-
-            </div>
-        </div>
-        
-        
-    </div>
-
-    <div class="eventBoard" id="ArchiveBoard">
-        <div class="eventBoard__Title">Archived</div>
-        <div class="eventBoard__Item_List">
-            <div class="eventBoard__Dropzone">
-
-
-                
-            </div>
-        </div>
         </div>
     </div>
 
 
 
-</div>
+    <div class="eventNextHolder" id="nextBoard">
+        <div class="eventNext">
+            <div class="eventNext__Title">Next event</div>
+            <div class="eventNext__Item-input"></div>
+        </div>
+
+        <div class="kanban">
+            <div class="eventBoard" id="PinBoard">
+                <div class="eventBoard__Title">Pinned / Important</div>
+                <div class="eventBoard__Item_List">
+                    <div class="eventBoard__Dropzone">
+
+
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="eventBoard" id="AllBoard">
+                <div class="eventBoard__Title">All Events</div>
+                <div class="eventBoard__Item_List">
+                    <div class="eventBoard__Dropzone">
+
+
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="eventBoard" id="ArchiveBoard">
+                <div class="eventBoard__Title">Archived</div>
+                <div class="eventBoard__Item_List">
+                    <div class="eventBoard__Dropzone">
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
 
     <button id="AddItemBtn" class="AddItem">+</button>
 
-<!-- Modal button -->
-<div id="myModal" class="modal">
+    <!-- Modal button -->
+    <div id="myModal" class="modal">
 
-    <!-- Modal content -->
-    <div class="modal-content">
-        <span id="Span1" class="close">&times;</span>
-        <p><!-- Event Making code and buttons go here --></p>
-        <label for="title">Event Title:</label><br>
-        <input type="text" id="title" name="title" class="title"><br><br>
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span id="Span1" class="close">&times;</span>
+            <p><!-- Event Making code and buttons go here --></p>
+            <label for="title">Event Title:</label><br>
+            <input type="text" id="title" name="title" class="title"><br><br>
 
-        <label for="textarea">Description:</label><br>
-        <textarea id="textarea" name="textarea" class="description"></textarea><br><br>
+            <label for="textarea">Description:</label><br>
+            <textarea id="textarea" name="textarea" class="description"></textarea><br><br>
 
-        <label>Tags:</label><br>
-        <input type="checkbox" id="option1" name="option1" value="Option 1">
-        <label for="option1">Work</label><br>
-        <input type="checkbox" id="option2" name="option2" value="Option 2">
-        <label for="option2">Social</label><br>
-        <input type="checkbox" id="option3" name="option3" value="Option 3">
-        <label for="option3">Chores</label><br>
-        <input type="checkbox" id="option4" name="option4" value="Option 4">
-        <label for="option4">Reminder</label><br><br>
-        <label for="dateName">Start Date: </label><br>
-        <input type="date" name="" id="dateSelecter"><br><br>
-        <label for="endDateName">End Date: </label><br>
-        <input type="date" name="" id="endDateSelecter"><br><br>
-        <button onclick="saveAll()">Save All</button>
+            <label>Tags:</label><br>
+            <input type="checkbox" id="option1" name="option1" value="Option 1">
+            <label for="option1">Work</label><br>
+            <input type="checkbox" id="option2" name="option2" value="Option 2">
+            <label for="option2">Social</label><br>
+            <input type="checkbox" id="option3" name="option3" value="Option 3">
+            <label for="option3">Chores</label><br>
+            <input type="checkbox" id="option4" name="option4" value="Option 4">
+            <label for="option4">Reminder</label><br><br>
+            <label for="dateName">Start Date: </label><br>
+            <input type="date" name="" id="dateSelecter"><br><br>
+            <label for="endDateName">End Date: </label><br>
+            <input type="date" name="" id="endDateSelecter"><br><br>
+            <button onclick="saveAll()">Save All</button>
 
-        <p class="feedback" id="feedback">Paste an event code here</p>
-        <form>
-            <input type="text" class="pasteShare" id="pasteshare" placeholder="Paste Here">
-            <button type="button" class="internalBtn" onclick="submitting()">Submit</button>
-        </form>
-
-
-    </div>
-
-</div>
+            <p class="feedback" id="feedback">Paste an event code here</p>
+            <form>
+                <input type="text" class="pasteShare" id="pasteshare" placeholder="Paste Here">
+                <button type="button" class="internalBtn" onclick="submitting()">Submit</button>
+            </form>
 
 
-<!-- Modal content for edit -->
-<div id="editModal" class="modal">
-    <div class="modal-content">
-        <h1>Edit Event</h1>
-        <span id="editSpan" class="close">&times;</span>
-        <label for="edit-title">Event Title:</label><br>
-        <input type="text" id="edit-title" name="title" class="title"><br><br>
-
-        <label for="edit-textarea">Description:</label><br>
-        <textarea id="edit-textarea" name="textarea" class="description"></textarea><br><br>
-
-        <label>Tags:</label><br>
-        <input type="checkbox" id="edit-option1" name="option1" value="Option 1">
-        <label for="edit-option1">Work</label><br>
-        <input type="checkbox" id="edit-option2" name="option2" value="Option 2">
-        <label for="edit-option2">Social</label><br>
-        <input type="checkbox" id="edit-option3" name="option3" value="Option 3">
-        <label for="edit-option3">Chores</label><br>
-        <input type="checkbox" id="edit-option4" name="option4" value="Option 4">
-        <label for="edit-option4">Reminder</label><br><br>
-        <label for="edit-dateSelecter">Start Date: </label><br>
-        <input type="date" name="" id="edit-dateSelecter"><br><br>
-        <label for="edit-endDateSelecter">End Date: </label><br>
-        <input type="date" name="" id="edit-endDateSelecter"><br><br>
-        <button onclick="saveEdit()">Save All</button>
-        <div class="eventBoard__AButton">
-            <i class="fas fa-archive" onclick="eventArch()"> Archive</i>
-        </div>
-        <div class="eventBoard__PButton">
-            <i class="fas fa-thumbtack" onclick="eventPin()"> Pin</i>
         </div>
 
-        <div class="eventBoard__DButton">
+    </div>
 
-            <i class="fas fa-trash" onclick="delConfirm()"> Delete</i>
+
+    <!-- Modal content for edit -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <h1>Edit Event</h1>
+            <span id="editSpan" class="close">&times;</span>
+            <label for="edit-title">Event Title:</label><br>
+            <input type="text" id="edit-title" name="title" class="title"><br><br>
+
+            <label for="edit-textarea">Description:</label><br>
+            <textarea id="edit-textarea" name="textarea" class="description"></textarea><br><br>
+
+            <label>Tags:</label><br>
+            <input type="checkbox" id="edit-option1" name="option1" value="Option 1">
+            <label for="edit-option1">Work</label><br>
+            <input type="checkbox" id="edit-option2" name="option2" value="Option 2">
+            <label for="edit-option2">Social</label><br>
+            <input type="checkbox" id="edit-option3" name="option3" value="Option 3">
+            <label for="edit-option3">Chores</label><br>
+            <input type="checkbox" id="edit-option4" name="option4" value="Option 4">
+            <label for="edit-option4">Reminder</label><br><br>
+            <label for="edit-dateSelecter">Start Date: </label><br>
+            <input type="date" name="" id="edit-dateSelecter"><br><br>
+            <label for="edit-endDateSelecter">End Date: </label><br>
+            <input type="date" name="" id="edit-endDateSelecter"><br><br>
+            <button onclick="saveEdit()">Save All</button>
+            <div class="eventBoard__AButton">
+                <i class="fas fa-archive" onclick="eventArch()"> Archive</i>
+            </div>
+            <div class="eventBoard__PButton">
+                <i class="fas fa-thumbtack" onclick="eventPin()"> Pin</i>
+            </div>
+
+            <div class="eventBoard__DButton">
+
+                <i class="fas fa-trash" onclick="delConfirm()"> Delete</i>
+            </div>
+            <p>Export event to clipboard</p>
+            <button class="internalBtn" onclick="copyToClipboard(1)">Copy</button>
+
+
         </div>
-        <p>Export event to clipboard</p>
-        <button class="internalBtn" onclick="copyToClipboard(1)">Copy</button>
-
-
     </div>
-</div>
 
-<div id="delModal" class="modal">
-    <div class="modal-content">
-        <h1>Delete Event?</h1>
-        <span id="delSpan" class="close">&times;</span>
-        <p>Are you sure you want to delete this event?</p>
+    <!-- Modal content for delete -->
+    <div id="delModal" class="modal">
+        <div class="modal-content">
+            <h1>Delete Event?</h1>
+            <span id="delSpan" class="close">&times;</span>
+            <p>Are you sure you want to delete this event?</p>
 
-        <button onclick="deleteYes()">Yes</button>
-        <button onclick="deleteNo()">No</button>
+            <button onclick="deleteYes()">Yes</button>
+            <button onclick="deleteNo()">No</button>
 
 
+        </div>
     </div>
-</div>
 
-<div class="filters">
-<div id="eventBoard__WorkButton" class="filterButton">
-    <i class="fas fa-briefcase" onclick="filterWork()"> Work</i>
-</div>
+    <!-- Modal content for tutorial -->
+    <div id="tutorModal" class="modal">
+        <div class="modal-content">
+            <h1>App Tutorial</h1>
+            <span id="tutorSpan" class="close">&times;</span>
+            <dl>
+                <dt>Creating Events</dt>
+                <dd>You can create events with a Title and Time, with optional Description and filtering tags.</dd>
+                <dt>Editting Events</dt>
+                <dd>If the event you created is not correct, you can click on the event and change it's details.</dd>
+                <dt>Archiving Events</dt>
+                <dd>If you wished to save an event to remember that you did it.</dd>
+                <dt>Deleting Events</dt>
+                <dd>If something happens to an upcoming event you're able to delete it.</dd>
+                <dt>Filters</dt>
+                <dd>You can filter events by the Work, Social, Chores and Remainders tags.</dd>
+                <dt>Importing Events</dt>
+                <dd>Found in Event creation, you can paste an event code below.</dd>
+                <dt>Exporting Events</dt>
+                <dd>Clicking on an event you can choose to export it, this gives you a code that others can enter</dd>
+            </dl>
 
-<div id="eventBoard__SocialButton" class="filterButton">
-    <i class="fas fa-users" onclick="filterSocial()"> Social</i>
-</div>
-
-<div id="eventBoard__ChoresButton" class="filterButton">
-    <i class="fas fa-home" onclick="filterChores()"> Chores</i>
-</div>
-
-    <div id="eventBoard__ReminderButton" class="filterButton">
-        <i class="fas fa-bell" onclick="filterReminder()"> Reminders</i>
+        </div>
     </div>
-</div>
+
+    <div class="filters">
+        <div id="eventBoard__WorkButton" class="filterButton">
+            <i class="fas fa-briefcase" onclick="filterWork()"> Work</i>
+        </div>
+
+        <div id="eventBoard__SocialButton" class="filterButton">
+            <i class="fas fa-users" onclick="filterSocial()"> Social</i>
+        </div>
+
+        <div id="eventBoard__ChoresButton" class="filterButton">
+            <i class="fas fa-home" onclick="filterChores()"> Chores</i>
+        </div>
+
+        <div id="eventBoard__ReminderButton" class="filterButton">
+            <i class="fas fa-bell" onclick="filterReminder()"> Reminders</i>
+        </div>
+    </div>
 
 
 </body>
