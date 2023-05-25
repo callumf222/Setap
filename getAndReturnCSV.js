@@ -131,24 +131,23 @@ class Event {
 		// Save the updated array to local storage
 		localStorage.setItem("events", JSON.stringify(events));
 	}
-
+	console.log(events);
 	let idArray = [];
 	function correctId() {
 		events.forEach((i) => {
 			idArray.push(i.id);
 		})
 		const maxId = Math.max(...idArray);
-		console.log(maxId);
+		//console.log(maxId);
 		return maxId+1;
 	}
-
-	function copyToClipboard(){
+	function copyToClipboard(index){
 		//console.log(events[0]);
 
-		const startDate = new Date(events[0].startDate);
-		const endDate = new Date(events[0].endDate);
+		const startDate = new Date(events[index].startDate);
+		const endDate = new Date(events[index].endDate);
 
-		const values = [events[0].title, events[0].description, events[0].tagList, startDate.valueOf(), endDate.valueOf()]
+		const values = [events[index].title, events[index].description, events[index].tagList, startDate.valueOf(), endDate.valueOf()]
 		const outputStr = values.join(",");
 
 		navigator.clipboard.writeText(outputStr).value;
