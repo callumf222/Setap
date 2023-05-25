@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="Homepagesidebar.css">
 
     <script src="HomePage.js" defer></script>
+    <script src="HelpPopup.js"></script>
 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
@@ -55,7 +56,7 @@
               
               <li>
                 <i class="fas fa-question"></i>
-                <a href="">Help</a>
+                <a href="#" id="TutorPopup">Help</a>
               </li>
 
             </ul>
@@ -206,6 +207,31 @@
         <button onclick="deleteYes()">Yes</button>
         <button onclick="deleteNo()">No</button>
 
+
+    </div>
+</div>
+
+
+<div id="tutorModal" class="modal">
+    <div class="modal-content">
+        <h1>App Tutorial</h1>
+        <span id="tutorSpan" class="close">&times;</span>
+        <dl>
+            <dt>Creating Events</dt>
+            <dd>You can create events with a Title and Time, with optional Description and filtering tags.</dd>
+            <dt>Editting Events</dt>
+            <dd>If the event you created is not correct, you can click on the event and change it's details.</dd>
+            <dt>Archiving Events</dt>
+            <dd>If you wished to save an event to remember that you did it.</dd>
+            <dt>Deleting Events</dt>
+            <dd>If something happens to an upcoming event you're able to delete it.</dd>
+            <dt>Filters</dt>
+            <dd>You can filter events by the Work, Social, Chores and Remainders tags.</dd>
+            <dt>Importing Events</dt>
+            <dd>Found in Event creation, you can paste an event code below.</dd>
+            <dt>Exporting Events</dt>
+            <dd>Clicking on an event you can choose to export it, this gives you a code that others can enter</dd>
+        </dl>
 
     </div>
 </div>

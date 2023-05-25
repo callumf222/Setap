@@ -485,13 +485,6 @@ window.onclick = function(event) {
 }
 
 
-
-
-
-
-
-
-
 // Get the date input element
 const editDateInput = document.getElementById("edit-dateSelecter");
 
@@ -798,5 +791,31 @@ function filterReminder() {
             }
         })
         filterReminderOn = false;
+    }
+}
+
+
+
+var AddHelpPopup = document.getElementById("TutorPopup");
+
+// Get the modal
+const tutorModal = document.getElementById("tutorModal");
+
+// Get the <span> element that closes the modal
+const tutorSpan = document.getElementById("tutorSpan");
+
+
+AddHelpPopup.onclick = function() {
+    tutorModal.style.display = "block";
+}
+
+tutorSpan.onclick = function() {
+    tutorModal.style.display = "none";
+}
+
+// When the user clicks anywhere
+window.onclick = function (event) {
+    if (event.target == tutorModal) {
+        tutorModal.style.display = "none";
     }
 }
