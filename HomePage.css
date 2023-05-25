@@ -1,0 +1,255 @@
+body{
+    overflow: hidden;
+    caret-color: transparent;
+    background-color: #9DAAF2;
+}
+
+.filters{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.eventNextHolder{
+    justify-content: center;
+}
+
+.eventNext {
+    display: flex;
+    padding: 30px;
+    background: #DFFDFF;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+.eventNext__Title {
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding-right: 20px;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    text-decoration: underline;
+}
+
+.eventNext__Item-input {
+    box-sizing: border-box;
+    color: black;
+    border-radius: 5px;
+    justify-content: center;
+    text-align: center;
+}
+
+.eventNext__DButton {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 30px;
+    color: white;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.eventNext__PButton {
+    position: absolute;
+    bottom: 10px;
+    right: 50px;
+    font-size: 30px;
+    color: white;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.kanban {
+    position: relative;
+    display: flex;
+    padding: 30px;
+    border-radius: 5px;
+}
+
+.eventBoard {
+    position: relative;
+    width: 30%;
+    background-color: #DFFDFF;
+    color: black;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px 20px 50px;
+    height: 650px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+}
+
+.eventBoard:not(:last-child) {
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.eventBoard__Title {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    text-decoration: underline;
+}
+
+.eventBoard__Item {
+    margin-top: 5px;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    background: white;
+    border-radius: 5px;
+    border: 1px solid black;
+    cursor: pointer;
+    color: black;
+}
+
+.eventBoard__Dropzone {
+    transition: background 0.15s, height 0.15s;
+}
+
+.eventBoardDropzone--active {
+    height: 20px;
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.eventBoard__DButton {
+    position: relative;
+    left:  300px;
+    font-size: 30px;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    
+}
+
+.eventBoard__PButton {
+    position: relative;
+    left:  300px;
+    font-size: 30px;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.eventBoard__AButton {
+    position: relative;
+    left:  300px;
+    font-size: 30px;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+
+.AddItem{
+    position: absolute;
+    background-color: #3B4CA8;
+    color: #fff;
+    font-size: 2.3rem;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    top: 93%;
+    left: 95%;
+    cursor: pointer;
+}
+
+.AddItem:hover{
+    background-color: #1A2238;
+}
+
+.eventBoard__DButton:hover, .eventBoard__PButton:hover{
+    color: #1A2238;
+}
+
+
+
+
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: hidden; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #9DAAF2;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #3B4CA8;
+    width: 40%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: black;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #ff0000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.title{
+    width: 40%
+}
+
+.description {
+    width: 80%
+}
+
+
+
+.filters{
+    background-color: #F9DB6D;
+    position: absolute;
+    bottom: -1%;
+    left: 3%;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border : 1px solid grey;
+    padding: 5px;
+
+}
+.filterButton{
+    padding: 5px;
+    margin-right: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.filterButton:hover{
+    color: #3B4CA8;
+}
+
+.filterButton:active{
+    color: #3B4CA8;
+}
+
+.filterButton:active,
+.active{
+    color: #3B4CA8;
+}
+
