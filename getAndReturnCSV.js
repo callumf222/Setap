@@ -118,16 +118,31 @@ class Event {
 	function submitting() {
 		var userInput = document.getElementById("pasteshare").value;
 		const submitArray = userInput.split(",");
+		if (submitArray.length != 8) {
+			document.getElementById("feedback").innerText = "Invalid import string";
+			return;
+		}
+		
 		//addEvent(addId,addTitle,addDescription,addTag1,addTag2,addTag3,addTag4,addStartDate,addEndDate);
-		addEvent(events.length,submitArray[0],submitArray[1],submitArray[2],submitArray[3],submitArray[4],submitArray[5],submitArray[6],submitArray[7]);
-		//console.log(events);
+		addEvent(correctId(),submitArray[0],submitArray[1],submitArray[2],submitArray[3],submitArray[4],submitArray[5],submitArray[6],submitArray[7]);
+		console.log(events);
 
 		document.getElementById("pasteshare").value = "";
-
+		document.getElementById("feedback").innerText = "Event imported";
 		// Save the updated array to local storage
 		localStorage.setItem("events", JSON.stringify(events));
 	}
-	
+
+	let idArray = [];
+	function correctId() {
+		events.forEach((i) => {
+			idArray.push(i.id);
+		})
+		const maxId = Math.max(...idArray);
+		console.log(maxId);
+		return maxId+1;
+	}
+
 	function copyToClipboard(){
 		//console.log(events[0]);
 
