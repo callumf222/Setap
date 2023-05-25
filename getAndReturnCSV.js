@@ -85,7 +85,7 @@ class Event {
 	  localStorage.setItem("events", JSON.stringify(events));
 	}
   
-	//Example usage:
+	// Example usage:
 	// addId = 0;
 	// addTitle="test 1 using variables";
 	// addDescription ="go and get ice";
@@ -96,16 +96,15 @@ class Event {
 	// addStartDate=1683897922000;
 	// addEndDate=1683897922000;
   
-	// addEvent(addId,addTitle,addDescription,addTag1,addTag2,addTag3,addTag4,addStartDate,addEndDate);
+	//addEvent(addId,addTitle,addDescription,addTag1,addTag2,addTag3,addTag4,addStartDate,addEndDate);
 	// addEvent(1,'Test 2 with description','desc',true,true,false,false,1683897922000,1683897922000);
 	// addEvent(2,'Test 3 no description of ','',true,true,false,false,1683897922000,1683897922000);
 	
-	//deleteEvent(0,events);
 	//Retrieve the updated events from local storage
 	storedEvents = localStorage.getItem("events");
 	events = storedEvents ? JSON.parse(storedEvents) : [];
-	// console.log(events[0]);
-  	
+	//console.log(events);
+  	//deleteEvent(0,events);
 	
 	// Display the events
 	// console.log("Event title ="+events[0].title);
