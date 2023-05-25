@@ -1,7 +1,7 @@
 from helium import *
 
 start_chrome(maximize=True)
-go_to("http://127.0.0.1:5500/CalendarPage/Setap-Calendar-Page/CalendarPage/calendarHTML.html")
+go_to("http://127.0.0.1:5500/Event%20App/calendarHTML.html")
 
 click(S("#prev"))
 click(S("#prev"))
