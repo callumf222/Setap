@@ -8,4 +8,8 @@ edit popup stuff
 
 add tags for pin and archived instead
 
+-------------------------------------------------------------
+
+
+occasional extra event is created?
 

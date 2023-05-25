@@ -78,6 +78,7 @@ function convertTagList(tagList) {
 
 function createEventBoard(id,title, description, tagList, startDate, endDate) {
 
+
     if (startDate == null) {
         startDate = new Date();
     }
@@ -196,6 +197,7 @@ if (typeof(Storage) !== "undefined") {
         var userInput = document.getElementById("pasteshare").value;
         const submitArray = userInput.split(",");
         const tagsList = [submitArray[2],submitArray[3],submitArray[4],submitArray[5]];
+
         if (submitArray.length != 8) {
             document.getElementById("feedback").innerText = "Invalid import string";
             return;
@@ -203,19 +205,23 @@ if (typeof(Storage) !== "undefined") {
 
         let id = correctId();
 
-        console.log(submitArray[6]);
-        console.log(submitArray[7]);
+        console.log("submit to array")
+        console.log(id,submitArray[0],submitArray[1],tagsList,parseInt(submitArray[6]),parseInt(submitArray[7]))
 
-        //addEvent(addId,addTitle,addDescription,addStartDate,addEndDate);
-        addEventArray(id,submitArray[0],submitArray[1],submitArray[2],tagsList,submitArray[6],submitArray[7]);
-
+        //addEvent(addId,   addTitle,   addDescription  tagslist   startdate    addEndDate);
+        addEventArray(id,submitArray[0],submitArray[1],tagsList,parseInt(submitArray[6]),parseInt(submitArray[7]));
 
 
         document.getElementById("pasteshare").value = "";
         document.getElementById("feedback").innerText = "Event imported";
         // Save the updated array to local storage
         localStorage.setItem("events", JSON.stringify(events));
-        createEventBoard(id,submitArray[0],submitArray[1],submitArray[2],tagsList,submitArray[6],submitArray[7]);
+
+
+        //addEvent(addId,   addTitle,   addDescription  tagslist   startdate    addEndDate);
+        console.log("submit to board")
+        console.log(id,submitArray[0],submitArray[1],tagsList,parseInt(submitArray[6]),parseInt(submitArray[7]))
+        createEventBoard(id,submitArray[0],submitArray[1],tagsList,parseInt(submitArray[6]),parseInt(submitArray[7]));
     }
     console.log(events);
     let idArray = [];
@@ -346,11 +352,13 @@ function saveAll(){
     let id = events.length;
 
     var eventValue = [id, saveTitle(), saveTextarea(),saveTagslist(),saveDate(),saveEndDate()]
-    
+
+    console.log("save to board")
+    console.log(id, saveTitle(), saveTextarea(),saveTagslist(),saveDate(),saveEndDate());
     createEventBoard(id, saveTitle(), saveTextarea(),saveTagslist(),saveDate(),saveEndDate())
 
-
-
+    console.log("save to array")
+    console.log(eventValue[0],eventValue[1],eventValue[2],eventValue[3],eventValue[4],eventValue[5])
     addEventArray(eventValue[0],eventValue[1],eventValue[2],eventValue[3],eventValue[4],eventValue[5])
 
     modal.style.display = "none";
